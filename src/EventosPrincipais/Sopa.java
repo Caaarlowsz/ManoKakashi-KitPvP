@@ -13,11 +13,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 import Utils.KitAPI;
 
 public class Sopa implements Listener {
-	
+
 	@EventHandler
 	public void SopaBeber(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
-		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK )) && e.getMaterial() == Material.MUSHROOM_SOUP) {
+		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))
+				&& e.getMaterial() == Material.MUSHROOM_SOUP) {
 			Damageable d = p;
 			if (d.getHealth() != d.getMaxHealth()) {
 				if (d.getHealth() > d.getMaxHealth() - 7.0D) {
@@ -27,15 +28,15 @@ public class Sopa implements Listener {
 				}
 				p.getItemInHand().setType(Material.BOWL);
 				p.getItemInHand().setAmount(1);
-				 ItemMeta m = p.getItemInHand().getItemMeta();
-			        m.setDisplayName("§9Pote");
-			        p.playSound(p.getLocation(), Sound.BURP, 1.0F, 1.0F);
-			        p.getInventory().getItemInHand().setItemMeta(m);
-			        p.updateInventory();
-			        if (KitAPI.getKit(p) == "QuickDropper") {
-				          p.setItemInHand(null);
-				        }
-			      }
-			    }
-			  }
-            }
+				ItemMeta m = p.getItemInHand().getItemMeta();
+				m.setDisplayName("§9Pote");
+				p.playSound(p.getLocation(), Sound.BURP, 1.0F, 1.0F);
+				p.getInventory().getItemInHand().setItemMeta(m);
+				p.updateInventory();
+				if (KitAPI.getKit(p) == "QuickDropper") {
+					p.setItemInHand(null);
+				}
+			}
+		}
+	}
+}

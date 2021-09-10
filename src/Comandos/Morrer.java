@@ -8,19 +8,15 @@ import org.bukkit.event.Listener;
 
 import me.confuser.barapi.BarAPI;
 
-public class Morrer
-  implements Listener, CommandExecutor
-{
-@SuppressWarnings("deprecation")
-public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-  {
-    Player p = (Player)sender;
-    if (cmd.getName().equalsIgnoreCase("morrer"))
-    {
-      p.setHealth(0.0D);
-      p.sendMessage("§4§lKIT§F§LPVP §a: §4§lVoce se matou!");
-      BarAPI.setMessage(p, "§4§lKIT§F§LPVP §a: §c§lVoce se matou!", 5);
-    }
-    return false;
-  }
+public class Morrer implements Listener, CommandExecutor {
+	@SuppressWarnings("deprecation")
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		Player p = (Player) sender;
+		if (cmd.getName().equalsIgnoreCase("morrer")) {
+			p.setHealth(0.0D);
+			p.sendMessage("§4§lKIT§F§LPVP §a: §4§lVoce se matou!");
+			BarAPI.setMessage(p, "§4§lKIT§F§LPVP §a: §c§lVoce se matou!", 5);
+		}
+		return false;
+	}
 }

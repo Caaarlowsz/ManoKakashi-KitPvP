@@ -8,33 +8,29 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-public class Plugins
-  implements Listener
-{
-  @EventHandler(priority=EventPriority.HIGHEST)
-  public void onCommandPreProcess(PlayerCommandPreprocessEvent e)
-  {
-    String[] msg = e.getMessage().split(" ");
-    List<String> plugins = new ArrayList<>();
-    plugins.add("pl");
-    plugins.add("plugin");
-    plugins.add("ver" + msg);
-    plugins.add("help" + msg);
-    plugins.add("ver");
-    plugins.add("help");
-    plugins.add("?");
-    plugins.add("me");
-    plugins.add("bukkit:help");
-    plugins.add("plugins");
-    plugins.add("minecraft:me");
-    for (String Loop : plugins) {
-      if (msg[0].equalsIgnoreCase("/" + Loop))
-      {
-          e.getPlayer().sendMessage("§f-------------------------------------------");
-        e.getPlayer().sendMessage("§4Plugin Feito por: §4§lManoKakashi ");
-        e.getPlayer().sendMessage("§f-------------------------------------------");
-        e.setCancelled(true);
-      }
-    }
-  }
+public class Plugins implements Listener {
+	@EventHandler(priority = EventPriority.HIGHEST)
+	public void onCommandPreProcess(PlayerCommandPreprocessEvent e) {
+		String[] msg = e.getMessage().split(" ");
+		List<String> plugins = new ArrayList<>();
+		plugins.add("pl");
+		plugins.add("plugin");
+		plugins.add("ver" + msg);
+		plugins.add("help" + msg);
+		plugins.add("ver");
+		plugins.add("help");
+		plugins.add("?");
+		plugins.add("me");
+		plugins.add("bukkit:help");
+		plugins.add("plugins");
+		plugins.add("minecraft:me");
+		for (String Loop : plugins) {
+			if (msg[0].equalsIgnoreCase("/" + Loop)) {
+				e.getPlayer().sendMessage("§f-------------------------------------------");
+				e.getPlayer().sendMessage("§4Plugin Feito por: §4§lManoKakashi ");
+				e.getPlayer().sendMessage("§f-------------------------------------------");
+				e.setCancelled(true);
+			}
+		}
+	}
 }

@@ -11,17 +11,18 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import Utils.KitAPI;
 
 public class Stomper implements Listener {
-	
+
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void Pulou(EntityDamageEvent e) {
-		if (e.getEntity() instanceof Player) {			
-			Player p = (Player)e.getEntity();
+		if (e.getEntity() instanceof Player) {
+			Player p = (Player) e.getEntity();
 			if (KitAPI.getKit(p) == "Stomper" && e.getCause() == DamageCause.FALL) {
-				if (e.getDamage() > 6 ) {
+				if (e.getDamage() > 6) {
 					for (Entity s : p.getNearbyEntities(3.5, 1, 3.5)) {
-						if (s instanceof Player);
-						Player t = (Player)s;
+						if (s instanceof Player)
+							;
+						Player t = (Player) s;
 						e.setDamage(4.0D);
 						t.sendMessage("§c§lVoce foi pisoteado por §b§l" + p.getDisplayName());
 						p.sendMessage("§a§lVoce pisoteou §b" + t.getDisplayName());
@@ -31,7 +32,7 @@ public class Stomper implements Listener {
 						} else {
 							t.damage(4, p);
 						}
-						
+
 					}
 				}
 				e.setDamage(4.0D);

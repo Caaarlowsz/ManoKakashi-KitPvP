@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ClearChat implements CommandExecutor {
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -16,13 +16,12 @@ public class ClearChat implements CommandExecutor {
 				sender.sendMessage("§c§lVoce nao tem permissao!");
 				return true;
 			}
-		for (int i= 0; i != 100; i++) {
+			for (int i = 0; i != 100; i++) {
 				s.sendMessage("  ");
-		}
-		  s.sendMessage("§4§lKIT§F§LPVP: §ao Chat foi limpo");
+			}
+			s.sendMessage("§4§lKIT§F§LPVP: §ao Chat foi limpo");
 		}
 		return false;
 	}
-	
 
 }

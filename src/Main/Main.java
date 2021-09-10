@@ -39,10 +39,10 @@ import Comandos.TesteClick;
 import Comandos.TogglePvP;
 import Comandos.Tp;
 import Comandos.Tpall;
-import Comandos.ajuda;
 import Comandos.Voar;
 import Comandos.Youtuber;
 import Comandos.aMain;
+import Comandos.ajuda;
 import EventosPrincipais.ChatForm;
 import EventosPrincipais.Entrou;
 import EventosPrincipais.Geral;
@@ -63,6 +63,7 @@ import Jumps.Ferro;
 import Jumps.Redstone;
 import Kits.Boxer;
 import Kits.BurstMaster;
+import Kits.Camel;
 import Kits.Deshfire;
 import Kits.Deshviper;
 import Kits.Fisherman;
@@ -71,7 +72,6 @@ import Kits.Gladiator;
 import Kits.Hulk;
 import Kits.Kangaroo;
 import Kits.Madman;
-import Kits.Camel;
 import Kits.Ninja;
 import Kits.Phantom;
 import Kits.Poseidon;
@@ -99,13 +99,14 @@ import Utils.TagsAPI;
 import Utils.WarpsAPI;
 
 public class Main extends JavaPlugin {
-	
+
 	public static Plugin plugin;
 	public static Main instance;
+
 	public static Main getInstace() {
 		return instance;
 	}
-	
+
 	public File stats1;
 	public YamlConfiguration stats;
 	public File warps1;
@@ -114,14 +115,14 @@ public class Main extends JavaPlugin {
 	public YamlConfiguration loja;
 	public File arenas1;
 	public YamlConfiguration arenas;
-	
+
 	public static ArrayList<String> score = new ArrayList<>();
-	
+
 	@SuppressWarnings("deprecation")
 	public void onEnable() {
-	    plugin = this;
-	    instance = this;
-	    saveConfig();
+		plugin = this;
+		instance = this;
+		saveConfig();
 		instance = this;
 		saveDefaultConfig();
 		File stats = new File(getDataFolder(), "stats.yml");
@@ -149,14 +150,14 @@ public class Main extends JavaPlugin {
 		new BukkitRunnable() {
 			@Override
 			public void run() {
-				for(Player p:Bukkit.getOnlinePlayers()) {
-					if(!score.contains(p.getName())) {
-						int ping = ((CraftPlayer)p).getHandle().ping;
+				for (Player p : Bukkit.getOnlinePlayers()) {
+					if (!score.contains(p.getName())) {
+						int ping = ((CraftPlayer) p).getHandle().ping;
 						int online = Bukkit.getOnlinePlayers().length;
 						ScoreBoard.UpdateScore(p);
-						TitleAPI.sendTabTitle(p, "§4§lKIT§F§LPVP" + "\n" + "§aTenha um bom jogo", "§aKit : §f" + KitAPI.getKit(p) + " §aPing : §f" + ping + " §aOnline : §f" + online);
-					}
-					else {
+						TitleAPI.sendTabTitle(p, "§4§lKIT§F§LPVP" + "\n" + "§aTenha um bom jogo",
+								"§aKit : §f" + KitAPI.getKit(p) + " §aPing : §f" + ping + " §aOnline : §f" + online);
+					} else {
 						ScoreBoard.clearScoreboard(p);
 					}
 				}
@@ -168,14 +169,14 @@ public class Main extends JavaPlugin {
 		Bukkit.getConsoleSender().sendMessage("§bO Plugin §4§lKIT§F§LPVP §bfoi iniciado creditos §cManoKakashi");
 		Bukkit.getConsoleSender().sendMessage("§bO Plugin §4§lKIT§F§LPVP §bfoi iniciado creditos §cManoKakashi");
 	}
-	
+
 	@Override
 	public void onDisable() {
 		Bukkit.getConsoleSender().sendMessage("§bO Plugin §4§lKIT§F§LPVP §bfoi desativado creditos §cManoKakashi");
 		{
 		}
-		}
-		
+	}
+
 	public void RegisterEvents() {
 		Bukkit.getServer().getPluginManager().registerEvents(new Comandos.Fisherman(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new Gladiator(), this);
@@ -239,58 +240,60 @@ public class Main extends JavaPlugin {
 		Bukkit.getServer().getPluginManager().registerEvents(new Youtuber(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new SetArena(), this);
 	}
-	
+
 	public void Comandos() {
-     	getCommand("TogglePvP").setExecutor(new TogglePvP());
-     	getCommand("ping").setExecutor(new Ping());
-     	getCommand("lojakits").setExecutor(new LojaKits());
-     	getCommand("head").setExecutor(new Head());
-     	getCommand("inv").setExecutor(new Inv());
-     	getCommand("parkour").setExecutor(new Comandos.Parkour());
-     	getCommand("fps").setExecutor(new Fps());
-     	getCommand("sumo").setExecutor(new Sumo());
-     	getCommand("gm").setExecutor(new Gamemode());
-     	getCommand("challenge").setExecutor(new Challenge());
-     	getCommand("ajuda").setExecutor(new ajuda());
-     	getCommand("main").setExecutor(new aMain());
-     	getCommand("fisherman").setExecutor(new Comandos.Fisherman());
-     	getCommand("tell").setExecutor(new Tell());
-     	getCommand("tpall").setExecutor(new Tpall());
-     	getCommand("warps").setExecutor(new Warps());
-     	getCommand("spawn").setExecutor(new Spawn());
-     	getCommand("testclick").setExecutor(new TesteClick());
-     	getCommand("tags").setExecutor(new Tag());
-     	getCommand("tag").setExecutor(new Tag());
-     	getCommand("bc").setExecutor(new Bc());
-     	getCommand("coins").setExecutor(new Coins());
-     	getCommand("sc").setExecutor(new StaffChat());
-     	getCommand("score").setExecutor(new Score());
-     	getCommand("youtuber").setExecutor(new Youtuber());
-     	getCommand("voar").setExecutor(new Voar());
-     	getCommand("tp").setExecutor(new Tp());
-     	getCommand("arena").setExecutor(new Arena());
-     	getCommand("morrer").setExecutor(new Morrer());
+		getCommand("TogglePvP").setExecutor(new TogglePvP());
+		getCommand("ping").setExecutor(new Ping());
+		getCommand("lojakits").setExecutor(new LojaKits());
+		getCommand("head").setExecutor(new Head());
+		getCommand("inv").setExecutor(new Inv());
+		getCommand("parkour").setExecutor(new Comandos.Parkour());
+		getCommand("fps").setExecutor(new Fps());
+		getCommand("sumo").setExecutor(new Sumo());
+		getCommand("gm").setExecutor(new Gamemode());
+		getCommand("challenge").setExecutor(new Challenge());
+		getCommand("ajuda").setExecutor(new ajuda());
+		getCommand("main").setExecutor(new aMain());
+		getCommand("fisherman").setExecutor(new Comandos.Fisherman());
+		getCommand("tell").setExecutor(new Tell());
+		getCommand("tpall").setExecutor(new Tpall());
+		getCommand("warps").setExecutor(new Warps());
+		getCommand("spawn").setExecutor(new Spawn());
+		getCommand("testclick").setExecutor(new TesteClick());
+		getCommand("tags").setExecutor(new Tag());
+		getCommand("tag").setExecutor(new Tag());
+		getCommand("bc").setExecutor(new Bc());
+		getCommand("coins").setExecutor(new Coins());
+		getCommand("sc").setExecutor(new StaffChat());
+		getCommand("score").setExecutor(new Score());
+		getCommand("youtuber").setExecutor(new Youtuber());
+		getCommand("voar").setExecutor(new Voar());
+		getCommand("tp").setExecutor(new Tp());
+		getCommand("arena").setExecutor(new Arena());
+		getCommand("morrer").setExecutor(new Morrer());
 		getCommand("setarena").setExecutor(new SetArena());
-     	getCommand("build").setExecutor(new Build());
-     	getCommand("admin").setExecutor(new Admin());
-     	getCommand("kit").setExecutor(new Kit());
-     	getCommand("kits").setExecutor(new KitSelector());
-     	getCommand("clearchat").setExecutor(new ClearChat());
-     	getCommand("report").setExecutor(new Report(getInstace()));
+		getCommand("build").setExecutor(new Build());
+		getCommand("admin").setExecutor(new Admin());
+		getCommand("kit").setExecutor(new Kit());
+		getCommand("kits").setExecutor(new KitSelector());
+		getCommand("clearchat").setExecutor(new ClearChat());
+		getCommand("report").setExecutor(new Report(getInstace()));
 	}
+
 	public void save() {
 		try {
 			this.stats.save(this.stats1);
 			this.warps.save(this.warps1);
 			this.loja.save(this.loja1);
 			this.arenas.save(this.arenas1);
-	} catch (IOException e) {
-		e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-  }
+
 	public static void Segundos1() {
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstace(), new Runnable() {
-			
+
 			@SuppressWarnings("deprecation")
 			@Override
 			public void run() {
@@ -299,7 +302,7 @@ public class Main extends JavaPlugin {
 						KitAPI.KitDelay.put(s.getName(), KitAPI.KitDelay.get(s.getName()) - 1);
 					}
 				}
-				
+
 			}
 		}, 0, 20);
 	}

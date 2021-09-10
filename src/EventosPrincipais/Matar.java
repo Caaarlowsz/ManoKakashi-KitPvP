@@ -11,13 +11,13 @@ import Utils.KitAPI;
 import Utils.WarpsAPI;
 
 public class Matar implements Listener {
-	
+
 	@EventHandler
-	public void Matança(PlayerDeathEvent e ) {
+	public void Matança(PlayerDeathEvent e) {
 		Player p = e.getEntity();
 		WarpsAPI.ir(p, "spawn");
 		if (e.getEntity().getKiller() instanceof Player) {
-			Player t = (Player)p.getKiller();
+			Player t = (Player) p.getKiller();
 			KillsDeathsMoney.addDeaths(p, 1);
 			KillsDeathsMoney.addKill(t, 1);
 			KillsDeathsMoney.addMoney(t, 100);

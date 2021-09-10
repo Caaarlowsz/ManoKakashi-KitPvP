@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 public class StaffChat implements Listener, CommandExecutor {
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -16,29 +16,29 @@ public class StaffChat implements Listener, CommandExecutor {
 			sender.sendMessage("§cVoce precisa ser um player!");
 			return true;
 		}
-		Player p = (Player)sender;
+		Player p = (Player) sender;
 		if (!(p.hasPermission("fly.admin"))) {
 			p.sendMessage("§4§lKIT§F§LPVP §a: §c§lVoce nao tem permissao!");
 			return true;
-	}
+		}
 		if (args.length == 0) {
-		p.sendMessage("§4§lKIT§F§LPVP §a: §bUse /sc <Mensagem>!");
-		return true;
-	} else {
-		String message = "";
-		for (int i = 0; i < args.length; i++) {
-			if (i == args.length - 1) {
-				message = message + args[i];
+			p.sendMessage("§4§lKIT§F§LPVP §a: §bUse /sc <Mensagem>!");
+			return true;
 		} else {
-			message = message + args[i] + " ";
-		}
-	}
-		for (Player s : Bukkit.getOnlinePlayers()) {
-			if (s.hasPermission("fly.admin")) {
-				s.sendMessage("§c§lSTAFF §d: §b§l" + p.getName() + " §7 " + message.replace("&", "§"));
+			String message = "";
+			for (int i = 0; i < args.length; i++) {
+				if (i == args.length - 1) {
+					message = message + args[i];
+				} else {
+					message = message + args[i] + " ";
+				}
 			}
+			for (Player s : Bukkit.getOnlinePlayers()) {
+				if (s.hasPermission("fly.admin")) {
+					s.sendMessage("§c§lSTAFF §d: §b§l" + p.getName() + " §7 " + message.replace("&", "§"));
+				}
+			}
+			return true;
 		}
-		return true;
 	}
-  }
 }

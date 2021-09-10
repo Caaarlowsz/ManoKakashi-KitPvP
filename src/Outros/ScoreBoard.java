@@ -13,14 +13,15 @@ import Utils.KillsDeathsMoney;
 import Utils.KitAPI;
 
 public class ScoreBoard implements Listener {
-	
+
 	public static Scoreboard getScoreBoard() {
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
 		return board;
 	}
+
 	public static Main plugin;
-	
+
 	@SuppressWarnings({ "deprecation" })
 	public static void UpdateScore(Player p) {
 		int online = Bukkit.getOnlinePlayers().length;
@@ -48,8 +49,9 @@ public class ScoreBoard implements Listener {
 				scoreboard.send(p);
 			}
 		}, 5L);
-		
+
 	}
+
 	public static void clearScoreboard(Player p) {
 		getScoreBoard().clearSlot(DisplaySlot.SIDEBAR);
 		p.setScoreboard(getScoreBoard());
