@@ -24,7 +24,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class Gladiator implements Listener {
@@ -57,7 +57,7 @@ public class Gladiator implements Listener {
 						p.getLocation().getBlockY() + 73, p.getLocation().getBlockZ() - 8);
 				if ((lutando.containsKey(p.getName())) || (lutando.containsKey(r.getName()))) {
 					event.setCancelled(true);
-					p.sendMessage(ChatColor.RED + "§c§lFly§7§lTrue§a: §7Voce ja esta em combate!");
+					p.sendMessage(ChatColor.RED + "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7Voce ja esta em combate!");
 					return;
 				}
 				Integer currentID = Integer.valueOf(this.nextID);
@@ -79,7 +79,7 @@ public class Gladiator implements Listener {
 								if (!b.isEmpty()) {
 									event.setCancelled(true);
 									p.sendMessage(
-											ChatColor.RED + "§c§lFly§7§lTrue§a: §7 Voce nao pode criar sua arena aqui");
+											ChatColor.RED + "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Voce nao pode criar sua arena aqui");
 									return;
 								}
 								if (bY == 10) {
@@ -103,18 +103,18 @@ public class Gladiator implements Listener {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 5));
 					r.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 5));
 					p.sendMessage(ChatColor.GREEN
-							+ "§c§lFly§7§lTrue§a: §7 Voce desafiou um jogador! Voce tem 5 segundos de invencibilidade!");
+							+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Voce desafiou um jogador! Voce tem 5 segundos de invencibilidade!");
 					p.sendMessage(ChatColor.AQUA
-							+ "§c§lFly§7§lTrue§a: §7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
+							+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
 					r.sendMessage(ChatColor.RED
-							+ "§c§lFly§7§lTrue§a: §7 Voce foi desafiado! Voce tem 5 segundos de invencibilidade!");
+							+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Voce foi desafiado! Voce tem 5 segundos de invencibilidade!");
 					r.sendMessage(ChatColor.AQUA
-							+ "§c§lFly§7§lTrue§a: §7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
+							+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
 					lutando.put(p.getName(), r.getName());
 					lutando.put(r.getName(), p.getName());
 					gladgladiator.add(p.getName());
 					gladgladiator.add(r.getName());
-					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 						public void run() {
 							if ((Gladiator.lutando.containsKey(p.getName()))
 									&& (((String) Gladiator.lutando.get(p.getName())).equalsIgnoreCase(r.getName()))
@@ -125,7 +125,7 @@ public class Gladiator implements Listener {
 							}
 						}
 					}, 2400L);
-					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 						public void run() {
 							if ((Gladiator.lutando.containsKey(p.getName()))
 									&& (((String) Gladiator.lutando.get(p.getName())).equalsIgnoreCase(r.getName()))
@@ -140,9 +140,9 @@ public class Gladiator implements Listener {
 								Gladiator.this.oldl.remove(p.getName());
 								Gladiator.this.oldl.remove(r.getName());
 								p.sendMessage(ChatColor.RED
-										+ "§c§lFly§7§lTrue§a: §7 Nao houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
+										+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Nao houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
 								r.sendMessage(ChatColor.RED
-										+ "§c§lFly§7§lTrue§a: §7 Nao houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
+										+ "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Nao houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
 								Location loc = (Location) Gladiator.this.localizacao.get(p);
 								List<Location> cuboid = new ArrayList<>();
 								int bZ;
@@ -187,7 +187,7 @@ public class Gladiator implements Listener {
 		if ((p.getItemInHand().getType() == Material.IRON_FENCE) && (KitAPI.getKit(p) == "Gladiator")) {
 			e.setCancelled(true);
 			p.updateInventory();
-			p.sendMessage("§c§lFly§7§lTrue§a: §7 §cVoce nao pode dropar este item!");
+			p.sendMessage("ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 ï¿½cVoce nao pode dropar este item!");
 			return;
 		}
 	}
@@ -199,7 +199,7 @@ public class Gladiator implements Listener {
 				&& (lutando.containsKey(e.getPlayer().getName()))) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.BEDROCK);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					if (Gladiator.lutando.containsKey(e.getPlayer().getName())) {
 						e.getClickedBlock().setType(Material.GLASS);
@@ -215,7 +215,7 @@ public class Gladiator implements Listener {
 				&& (lutando.containsKey(e.getPlayer().getName()))) {
 			e.setCancelled(true);
 			e.getBlock().setType(Material.BEDROCK);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					if ((e.getPlayer().getGameMode() != GameMode.CREATIVE)
 							&& (Gladiator.lutando.containsKey(e.getPlayer().getName()))) {
@@ -279,7 +279,7 @@ public class Gladiator implements Listener {
 			Player k = Bukkit.getServer().getPlayer((String) lutando.get(p.getName()));
 			Location old = (Location) this.oldl.get(p.getName());
 			k.teleport(old);
-			k.sendMessage(ChatColor.GREEN + "§c§lFly§7§lTrue§a: §7 Voce ganhou a batalha contra " + p.getName()
+			k.sendMessage(ChatColor.GREEN + "ï¿½cï¿½lFlyï¿½7ï¿½lTrueï¿½a: ï¿½7 Voce ganhou a batalha contra " + p.getName()
 					+ ChatColor.GREEN + "!");
 			Bukkit.getScheduler().cancelTask(this.id1);
 			Bukkit.getScheduler().cancelTask(this.id2);

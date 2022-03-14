@@ -19,7 +19,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.BlockIterator;
 import org.bukkit.util.Vector;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class Ryu implements Listener {
@@ -44,16 +44,16 @@ public class Ryu implements Listener {
 			Snowball h = (Snowball) p.launchProjectile(Snowball.class);
 			Vector velo1 = p.getLocation().getDirection().normalize().multiply(10);
 			h.setVelocity(velo1);
-			h.setMetadata("hadouken", new FixedMetadataValue(Main.getInstace(), Boolean.valueOf(true)));
+			h.setMetadata("hadouken", new FixedMetadataValue(ManoKakashiPvP.getInstace(), Boolean.valueOf(true)));
 			this.cooldown.put(p.getName(), Long.valueOf(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(15L)));
-			p.sendMessage("§bHadooouken !!");
+			p.sendMessage("ï¿½bHadooouken !!");
 		} else {
 			if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))
 					&& (KitAPI.getKit(p) == "Ryu") && (p.getItemInHand().getType() == Material.DIAMOND_BLOCK)) {
-				p.sendMessage("§cAguarde §a"
+				p.sendMessage("ï¿½cAguarde ï¿½a"
 						+ TimeUnit.MILLISECONDS.toSeconds(
 								((Long) this.cooldown.get(p.getName())).longValue() - System.currentTimeMillis())
-						+ "§c segundos para usar novamente!");
+						+ "ï¿½c segundos para usar novamente!");
 				e.setCancelled(true);
 				return;
 			}

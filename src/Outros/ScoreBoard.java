@@ -8,7 +8,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
 import APIs.SimpleScoreboard;
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KillsDeathsMoney;
 import Utils.KitAPI;
 
@@ -20,7 +20,7 @@ public class ScoreBoard implements Listener {
 		return board;
 	}
 
-	public static Main plugin;
+	public static ManoKakashiPvP plugin;
 
 	@SuppressWarnings({ "deprecation" })
 	public static void UpdateScore(Player p) {
@@ -28,7 +28,7 @@ public class ScoreBoard implements Listener {
 		int kills = KillsDeathsMoney.getKills(p);
 		int deaths = KillsDeathsMoney.getDeaths(p);
 		int coins = KillsDeathsMoney.getMoney(p);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 			@Override
 			public void run() {
 				SimpleScoreboard scoreboard = new SimpleScoreboard("§4§lKIT§F§LPVP");

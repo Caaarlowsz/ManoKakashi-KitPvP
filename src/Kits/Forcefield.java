@@ -16,7 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 import me.confuser.barapi.BarAPI;
 
@@ -36,30 +36,30 @@ public class Forcefield implements Listener {
 				event.setCancelled(true);
 			}
 			if (this.cooldownm.contains(p)) {
-				p.sendMessage("§cKit em cooldown!");
+				p.sendMessage("ï¿½cKit em cooldown!");
 				return;
 			}
 			Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.MAGMACUBE_WALK2, 5.0F, -5.0F);
 			this.cooldownm.add(p);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					Forcefield.forcefielddano.add(p);
-					p.sendMessage("§aVoce ativou o kit ForceField");
+					p.sendMessage("ï¿½aVoce ativou o kit ForceField");
 				}
 			}, 0L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					Forcefield.forcefielddano.remove(p);
 				}
 			}, 300L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					Forcefield.this.cooldownm.remove(p);
-					p.sendMessage("§aVoce ja pode usa-lo denovo");
+					p.sendMessage("ï¿½aVoce ja pode usa-lo denovo");
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0F, 5.0F);
 				}
 			}, 1000L);
@@ -75,7 +75,7 @@ public class Forcefield implements Listener {
 			for (Entity inimigos : Local) {
 				Player local = (Player) inimigos;
 				local.damage(3.0D);
-				BarAPI.setMessage(local, "§6§lVoce esta perto de um ForceField", 5);
+				BarAPI.setMessage(local, "ï¿½6ï¿½lVoce esta perto de um ForceField", 5);
 				inimigos.setVelocity(new Vector(0.2D, 0.0D, 0.2D));
 			}
 		}

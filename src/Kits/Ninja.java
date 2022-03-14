@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class Ninja implements Listener {
@@ -25,12 +25,12 @@ public class Ninja implements Listener {
 			if (KitAPI.getKit(p) == "Ninja") {
 				NinjaPlayer.put(p.getName(), t);
 				NinjaTime.put(p.getName(), 10);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						if (NinjaTime.get(p.getName()) <= 0) {
 							if (KitAPI.getKit(p) == "Ninja" && KitAPI.KitDelay.containsKey(p.getName())) {
-								p.sendMessage("§cVoce perdeu seu player §6"
-										+ NinjaPlayer.get(p.getName()).getDisplayName() + " §cNo Ninja");
+								p.sendMessage("ï¿½cVoce perdeu seu player ï¿½6"
+										+ NinjaPlayer.get(p.getName()).getDisplayName() + " ï¿½cNo Ninja");
 
 							}
 							NinjaPlayer.remove(p.getName());
@@ -51,28 +51,28 @@ public class Ninja implements Listener {
 						Player t = NinjaPlayer.get(p.getName());
 						if (p.getLocation().distance(t.getLocation()) <= 35) {
 							p.teleport(t);
-							p.sendMessage("§bVoce usou seu Kit!");
+							p.sendMessage("ï¿½bVoce usou seu Kit!");
 							KitAPI.KitDelay.put(p.getName(), 10);
-							Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+							Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 								@Override
 								public void run() {
 									if (KitAPI.KitDelay.containsKey(p.getName())
 											&& KitAPI.KitDelay.get(p.getName()) <= 0 && KitAPI.getKit(p) == "Ninja") {
-										p.sendMessage("§cKit Ninja Pronto");
+										p.sendMessage("ï¿½cKit Ninja Pronto");
 										KitAPI.KitDelay.remove(p.getName());
 									}
 								}
 							}, 10 * 20);
 						} else {
-							p.sendMessage("§cPlayer esta muito distante");
+							p.sendMessage("ï¿½cPlayer esta muito distante");
 							return;
 						}
 					} else {
-						p.sendMessage("§cVoce nao tem nenhum jogador no seu ninja");
+						p.sendMessage("ï¿½cVoce nao tem nenhum jogador no seu ninja");
 						return;
 					}
 				} else {
-					p.sendMessage("§cKit Em Cooldown");
+					p.sendMessage("ï¿½cKit Em Cooldown");
 					return;
 				}
 			}

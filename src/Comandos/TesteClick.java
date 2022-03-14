@@ -15,7 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 
 public class TesteClick implements Listener, CommandExecutor {
 
@@ -41,26 +41,26 @@ public class TesteClick implements Listener, CommandExecutor {
 				p.sendMessage("§4Voce ja esta testando seu click !");
 				return true;
 			}
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					jaesta.add(p.getName());
 					p.sendMessage("§4Comecando o Test-Click em §c3 §4segundos");
 
 				}
 			}, 20L);
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.sendMessage("§4Comecando o Test-Click em §c2 §3segundos");
 
 				}
 			}, 40L);
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.sendMessage("§4Comecando o Test-Click em §c1 §2segundo");
 
 				}
 			}, 60L);
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.sendMessage("§4O Teste Click Comecou");
 
@@ -68,7 +68,7 @@ public class TesteClick implements Listener, CommandExecutor {
 					TesteClick.click.add(p.getName());
 				}
 			}, 80L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					if (TesteClick.click.contains(p.getName())) {
 						jaesta.remove(p.getName());

@@ -1,59 +1,9 @@
-package Main;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
+package com.github.caaarlowsz.manokakashimc.kitpvp;
 
 import APIs.TitleAPI;
-import Comandos.Admin;
-import Comandos.Arena;
-import Comandos.Bc;
-import Comandos.Build;
-import Comandos.Challenge;
-import Comandos.ClearChat;
-import Comandos.Coins;
-import Comandos.Fps;
-import Comandos.Gamemode;
-import Comandos.Head;
-import Comandos.Inv;
-import Comandos.Kit;
-import Comandos.Morrer;
-import Comandos.Ping;
-import Comandos.Report;
-import Comandos.Score;
-import Comandos.SetArena;
-import Comandos.Spawn;
-import Comandos.StaffChat;
-import Comandos.Sumo;
-import Comandos.Tag;
-import Comandos.Tell;
-import Comandos.TesteClick;
-import Comandos.TogglePvP;
-import Comandos.Tp;
-import Comandos.Tpall;
-import Comandos.Voar;
-import Comandos.Youtuber;
-import Comandos.aMain;
-import Comandos.ajuda;
-import EventosPrincipais.ChatForm;
-import EventosPrincipais.Entrou;
-import EventosPrincipais.Geral;
-import EventosPrincipais.ItemQuebrar;
-import EventosPrincipais.Matar;
+import Comandos.*;
 import EventosPrincipais.Parkour;
-import EventosPrincipais.Plugins;
-import EventosPrincipais.Respawnou;
-import EventosPrincipais.Saiu;
-import EventosPrincipais.Sopa;
-import EventosPrincipais.SwordNerf;
+import EventosPrincipais.*;
 import GUI.KitSelector;
 import GUI.LojaKits;
 import GUI.Warps;
@@ -61,34 +11,8 @@ import Jumps.Diamante;
 import Jumps.Esmeralda;
 import Jumps.Ferro;
 import Jumps.Redstone;
-import Kits.Boxer;
-import Kits.BurstMaster;
-import Kits.Camel;
-import Kits.Deshfire;
-import Kits.Deshviper;
 import Kits.Fisherman;
-import Kits.Forcefield;
-import Kits.Gladiator;
-import Kits.Hulk;
-import Kits.Kangaroo;
-import Kits.Madman;
-import Kits.Ninja;
-import Kits.Phantom;
-import Kits.Poseidon;
-import Kits.Reaper;
-import Kits.Ryu;
-import Kits.Seya;
-import Kits.Snail;
-import Kits.Sonic;
-import Kits.Specialist;
-import Kits.Stomper;
-import Kits.Thor;
-import Kits.TimeLord;
-import Kits.Titan;
-import Kits.Turtle;
-import Kits.Urgal;
-import Kits.Viking;
-import Kits.Viper;
+import Kits.*;
 import Outros.Motd;
 import Outros.PlacaDeRecraft;
 import Outros.PlacaDeSopa;
@@ -97,13 +21,46 @@ import Utils.KillStreak;
 import Utils.KitAPI;
 import Utils.TagsAPI;
 import Utils.WarpsAPI;
+import com.github.caaarlowsz.kitpvpapi.KitPvP;
+import com.github.caaarlowsz.kitpvpapi.KitPvPAPI;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
-public class Main extends JavaPlugin {
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class ManoKakashiPvP extends JavaPlugin implements KitPvP {
+
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		KitPvPAPI.setInstance(this);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.enable();
+	}
+
+	@Override
+	public void onDisable() {
+		super.onDisable();
+		KitPvPAPI.setInstance(null);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.disable();
+	}
+
+	// TODO: Melhorar a classe principal
 
 	public static Plugin plugin;
-	public static Main instance;
+	public static ManoKakashiPvP instance;
 
-	public static Main getInstace() {
+	public static ManoKakashiPvP getInstace() {
 		return instance;
 	}
 
@@ -119,7 +76,7 @@ public class Main extends JavaPlugin {
 	public static ArrayList<String> score = new ArrayList<>();
 
 	@SuppressWarnings("deprecation")
-	public void onEnable() {
+	public void enable() {
 		plugin = this;
 		instance = this;
 		saveConfig();
@@ -171,10 +128,8 @@ public class Main extends JavaPlugin {
 	}
 
 	@Override
-	public void onDisable() {
+	public void disable() {
 		Bukkit.getConsoleSender().sendMessage("§bO Plugin §4§lKIT§F§LPVP §bfoi desativado creditos §cManoKakashi");
-		{
-		}
 	}
 
 	public void RegisterEvents() {
@@ -292,7 +247,7 @@ public class Main extends JavaPlugin {
 	}
 
 	public static void Segundos1() {
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstace(), new Runnable() {
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(ManoKakashiPvP.getInstace(), new Runnable() {
 
 			@SuppressWarnings("deprecation")
 			@Override

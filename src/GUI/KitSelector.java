@@ -19,7 +19,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 
 public class KitSelector implements Listener, CommandExecutor {
 
@@ -119,7 +119,7 @@ public class KitSelector implements Listener, CommandExecutor {
 		Player p = e.getPlayer();
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))
 				&& (p.getItemInHand().getType() == Material.ENDER_CHEST)
-				&& (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§4§lKits"))) {
+				&& (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½4ï¿½lKits"))) {
 			p.chat("/kits");
 		}
 	}
@@ -129,7 +129,7 @@ public class KitSelector implements Listener, CommandExecutor {
 		Player p = e.getPlayer();
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))
 				&& (p.getItemInHand().getType() == Material.DIAMOND)
-				&& (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§4§lLoja"))) {
+				&& (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½4ï¿½lLoja"))) {
 			p.chat("/lojakits");
 		}
 	}
@@ -139,7 +139,7 @@ public class KitSelector implements Listener, CommandExecutor {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§4§lKIT§F§LPVP §b§lSeus kits")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½bï¿½lSeus kits")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -153,7 +153,7 @@ public class KitSelector implements Listener, CommandExecutor {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§4§lKIT§F§LPVP §b§lSeus kits")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½bï¿½lSeus kits")) {
 				if (e.getCurrentItem().isSimilar(bolo)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -167,7 +167,7 @@ public class KitSelector implements Listener, CommandExecutor {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§4§lKIT§F§LPVP §b§lSeus kits")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½bï¿½lSeus kits")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -346,232 +346,232 @@ public class KitSelector implements Listener, CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoce precisa ser um player");
+			sender.sendMessage("ï¿½cVoce precisa ser um player");
 			return true;
 		}
 		Player p = (Player) sender;
-		Inventory kit = Bukkit.createInventory(p, 54, "§4§lKIT§F§LPVP §b§lSeus kits");
+		Inventory kit = Bukkit.createInventory(p, 54, "ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½bï¿½lSeus kits");
 
 		vidro = new ItemStack(Material.STAINED_GLASS_PANE);
 		vidrometa = vidro.getItemMeta();
-		vidrometa.setDisplayName("§4§lKIT§F§LPVP");
+		vidrometa.setDisplayName("ï¿½4ï¿½lKITï¿½Fï¿½LPVP");
 		vidro.setItemMeta(vidrometa);
 
 		vidro1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 		vidro1meta = vidro1.getItemMeta();
-		vidro1meta.setDisplayName("§4§lKIT§F§LPVP");
+		vidro1meta.setDisplayName("ï¿½4ï¿½lKITï¿½Fï¿½LPVP");
 		vidro1.setItemMeta(vidro1meta);
 
 		bolo = new ItemStack(Material.SKULL_ITEM);
 		bolometa = bolo.getItemMeta();
-		bolometa.setDisplayName("§a§n" + p.getName());
+		bolometa.setDisplayName("ï¿½aï¿½n" + p.getName());
 		bolo.setItemMeta(bolometa);
 
 		loja = new ItemStack(Material.DIAMOND);
 		lojameta = loja.getItemMeta();
-		lojameta.setDisplayName("§a§nLoja");
+		lojameta.setDisplayName("ï¿½aï¿½nLoja");
 		loja.setItemMeta(lojameta);
 
 		pvp = new ItemStack(Material.STONE_SWORD);
 		pvpmeta = pvp.getItemMeta();
-		pvpmeta.setDisplayName("§b§lPvP");
+		pvpmeta.setDisplayName("ï¿½bï¿½lPvP");
 		pvp.setItemMeta(pvpmeta);
 
 		corante = new ItemStack(Material.WOOL);
 		corantemeta = corante.getItemMeta();
-		corantemeta.setDisplayName("§a§lSegunda aba");
+		corantemeta.setDisplayName("ï¿½aï¿½lSegunda aba");
 		corante.setItemMeta(corantemeta);
 
 		kangaroo = new ItemStack(Material.FIREWORK);
 		kangaroometa = kangaroo.getItemMeta();
-		kangaroometa.setDisplayName("§b§lKangaroo");
-		kangaroometa.setLore(Lore("§f§lUse §fpara §fdar §fsaltos §fmais §faltos"));
+		kangaroometa.setDisplayName("ï¿½bï¿½lKangaroo");
+		kangaroometa.setLore(Lore("ï¿½fï¿½lUse ï¿½fpara ï¿½fdar ï¿½fsaltos ï¿½fmais ï¿½faltos"));
 		kangaroo.setItemMeta(kangaroometa);
 
 		viper = new ItemStack(Material.SPIDER_EYE);
 		vipermeta = viper.getItemMeta();
-		vipermeta.setDisplayName("§b§lViper");
-		vipermeta.setLore(Lore("§f§lUse §fpara §fenvenenar §foponentes"));
+		vipermeta.setDisplayName("ï¿½bï¿½lViper");
+		vipermeta.setLore(Lore("ï¿½fï¿½lUse ï¿½fpara ï¿½fenvenenar ï¿½foponentes"));
 		viper.setItemMeta(vipermeta);
 
 		snail = new ItemStack(Material.WEB);
 		snailmeta = snail.getItemMeta();
-		snailmeta.setDisplayName("§b§lSnail");
-		snailmeta.setLore(Lore("§f§lUse §fpara §fdeixar §fseus §foponentes §flentos"));
+		snailmeta.setDisplayName("ï¿½bï¿½lSnail");
+		snailmeta.setLore(Lore("ï¿½fï¿½lUse ï¿½fpara ï¿½fdeixar ï¿½fseus ï¿½foponentes ï¿½flentos"));
 		snail.setItemMeta(snailmeta);
 
 		reaper = new ItemStack(Material.WOOD_HOE);
 		reapermeta = reaper.getItemMeta();
-		reapermeta.setDisplayName("§b§lReaper");
-		reapermeta.setLore(Lore("§f§lUse §fpara §fdeixar §fseus §foponentes §fpodres"));
+		reapermeta.setDisplayName("ï¿½bï¿½lReaper");
+		reapermeta.setLore(Lore("ï¿½fï¿½lUse ï¿½fpara ï¿½fdeixar ï¿½fseus ï¿½foponentes ï¿½fpodres"));
 		reaper.setItemMeta(reapermeta);
 
 		Fisherman = new ItemStack(Material.FISHING_ROD);
 		Fishermanmeta = Fisherman.getItemMeta();
-		Fishermanmeta.setDisplayName("§b§lFisherman");
-		Fishermanmeta.setLore(Lore("§f§lUse §fsua §fvarinha §fpara puxar §foponentes"));
+		Fishermanmeta.setDisplayName("ï¿½bï¿½lFisherman");
+		Fishermanmeta.setLore(Lore("ï¿½fï¿½lUse ï¿½fsua ï¿½fvarinha ï¿½fpara puxar ï¿½foponentes"));
 		Fisherman.setItemMeta(Fishermanmeta);
 
 		stomper = new ItemStack(Material.IRON_BOOTS);
 		stompermeta = stomper.getItemMeta();
-		stompermeta.setDisplayName("§b§lStomper");
-		stompermeta.setLore(Lore("§fPule §fde §flugares §faltos §fe §fmate §foponentes"));
+		stompermeta.setDisplayName("ï¿½bï¿½lStomper");
+		stompermeta.setLore(Lore("ï¿½fPule ï¿½fde ï¿½flugares ï¿½faltos ï¿½fe ï¿½fmate ï¿½foponentes"));
 		stomper.setItemMeta(stompermeta);
 
 		viking = new ItemStack(Material.STONE_AXE);
 		vikingmeta = viking.getItemMeta();
-		vikingmeta.setDisplayName("§b§lViking");
-		vikingmeta.setLore(Lore("§fSeja §fum §fviking §fe §fcause §fmuito §fdano"));
+		vikingmeta.setDisplayName("ï¿½bï¿½lViking");
+		vikingmeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fviking ï¿½fe ï¿½fcause ï¿½fmuito ï¿½fdano"));
 		viking.setItemMeta(vikingmeta);
 
 		boxer = new ItemStack(Material.QUARTZ);
 		boxermeta = boxer.getItemMeta();
-		boxermeta.setDisplayName("§b§lBoxer");
-		boxermeta.setLore(Lore("§fSeja §fum §fum §fboxer §fe §fde mais dano"));
+		boxermeta.setDisplayName("ï¿½bï¿½lBoxer");
+		boxermeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fum ï¿½fboxer ï¿½fe ï¿½fde mais dano"));
 		boxer.setItemMeta(boxermeta);
 
 		deshfire = new ItemStack(Material.REDSTONE_BLOCK);
 		deshfiremeta = deshfire.getItemMeta();
-		deshfiremeta.setDisplayName("§b§lDeshfire");
-		deshfiremeta.setLore(Lore("§fDe §fum §fdesh §fcausando §ffogo"));
+		deshfiremeta.setDisplayName("ï¿½bï¿½lDeshfire");
+		deshfiremeta.setLore(Lore("ï¿½fDe ï¿½fum ï¿½fdesh ï¿½fcausando ï¿½ffogo"));
 		deshfire.setItemMeta(deshfiremeta);
 
 		deshviper = new ItemStack(Material.EMERALD_BLOCK);
 		deshvipermeta = deshviper.getItemMeta();
-		deshvipermeta.setDisplayName("§b§lDeshviper");
-		deshvipermeta.setLore(Lore("§fDe §fum §fdesh §fcausando §fPoison"));
+		deshvipermeta.setDisplayName("ï¿½bï¿½lDeshviper");
+		deshvipermeta.setLore(Lore("ï¿½fDe ï¿½fum ï¿½fdesh ï¿½fcausando ï¿½fPoison"));
 		deshviper.setItemMeta(deshvipermeta);
 
 		ff = new ItemStack(Material.IRON_FENCE);
 		ffmeta = ff.getItemMeta();
-		ffmeta.setDisplayName("§b§lForcefield");
-		ffmeta.setLore(Lore("§fCrie um campo de forca"));
+		ffmeta.setDisplayName("ï¿½bï¿½lForcefield");
+		ffmeta.setLore(Lore("ï¿½fCrie um campo de forca"));
 		ff.setItemMeta(ffmeta);
 
 		hulk = new ItemStack(Material.SADDLE);
 		hulkmeta = hulk.getItemMeta();
-		hulkmeta.setDisplayName("§b§lHulk");
-		hulkmeta.setLore(Lore("§fPuxe alguem para suas costas"));
+		hulkmeta.setDisplayName("ï¿½bï¿½lHulk");
+		hulkmeta.setLore(Lore("ï¿½fPuxe alguem para suas costas"));
 		hulk.setItemMeta(hulkmeta);
 
 		ryu = new ItemStack(Material.DIAMOND_BLOCK);
 		ryumeta = ryu.getItemMeta();
-		ryumeta.setDisplayName("§b§lRyu");
-		ryumeta.setLore(Lore("§fSeja o Ryu e mande Hadouken"));
+		ryumeta.setDisplayName("ï¿½bï¿½lRyu");
+		ryumeta.setLore(Lore("ï¿½fSeja o Ryu e mande Hadouken"));
 		ryu.setItemMeta(ryumeta);
 
 		seya = new ItemStack(Material.DIAMOND);
 		seyameta = seya.getItemMeta();
-		seyameta.setDisplayName("§b§lSeya");
-		seyameta.setLore(Lore("§fTenha a armadura de §fpegasus"));
+		seyameta.setDisplayName("ï¿½bï¿½lSeya");
+		seyameta.setLore(Lore("ï¿½fTenha a armadura de ï¿½fpegasus"));
 		seya.setItemMeta(seyameta);
 
 		sonic = new ItemStack(Material.LAPIS_BLOCK);
 		sonicmeta = sonic.getItemMeta();
-		sonicmeta.setDisplayName("§b§lSonic");
-		sonicmeta.setLore(Lore("§fDe §fum §fdesh §fcausando §fefeitos"));
+		sonicmeta.setDisplayName("ï¿½bï¿½lSonic");
+		sonicmeta.setLore(Lore("ï¿½fDe ï¿½fum ï¿½fdesh ï¿½fcausando ï¿½fefeitos"));
 		sonic.setItemMeta(sonicmeta);
 
 		specialist = new ItemStack(Material.ENCHANTED_BOOK);
 		specialistmeta = specialist.getItemMeta();
-		specialistmeta.setDisplayName("§b§lSpecialist");
-		specialistmeta.setLore(Lore("§fTenha um altar de enchant portatil"));
+		specialistmeta.setDisplayName("ï¿½bï¿½lSpecialist");
+		specialistmeta.setLore(Lore("ï¿½fTenha um altar de enchant portatil"));
 		specialist.setItemMeta(specialistmeta);
 
 		titan = new ItemStack(Material.BEDROCK);
 		titanmeta = titan.getItemMeta();
-		titanmeta.setDisplayName("§b§lTitan");
-		titanmeta.setLore(Lore("§fSeja um titan com uma grande regeneracao"));
+		titanmeta.setDisplayName("ï¿½bï¿½lTitan");
+		titanmeta.setLore(Lore("ï¿½fSeja um titan com uma grande regeneracao"));
 		titan.setItemMeta(titanmeta);
 
 		turtle = new ItemStack(Material.DIAMOND_CHESTPLATE);
 		turtlemeta = turtle.getItemMeta();
-		turtlemeta.setDisplayName("§b§lTurtle");
-		turtlemeta.setLore(Lore("§fTome menos dano no shift"));
+		turtlemeta.setDisplayName("ï¿½bï¿½lTurtle");
+		turtlemeta.setLore(Lore("ï¿½fTome menos dano no shift"));
 		turtle.setItemMeta(turtlemeta);
 
 		specialist = new ItemStack(Material.ENCHANTED_BOOK);
 		specialistmeta = specialist.getItemMeta();
-		specialistmeta.setDisplayName("§b§lSpecialist");
-		specialistmeta.setLore(Lore("§fTenha §fum §faltar §fde §fenchant §fportatil"));
+		specialistmeta.setDisplayName("ï¿½bï¿½lSpecialist");
+		specialistmeta.setLore(Lore("ï¿½fTenha ï¿½fum ï¿½faltar ï¿½fde ï¿½fenchant ï¿½fportatil"));
 		specialist.setItemMeta(specialistmeta);
 
 		titan = new ItemStack(Material.BEDROCK);
 		titanmeta = titan.getItemMeta();
-		titanmeta.setDisplayName("§b§lTitan");
-		titanmeta.setLore(Lore("§fSeja §fum §ftitan §fcom §fuma §fgrande §fregeneracao"));
+		titanmeta.setDisplayName("ï¿½bï¿½lTitan");
+		titanmeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½ftitan ï¿½fcom ï¿½fuma ï¿½fgrande ï¿½fregeneracao"));
 		titan.setItemMeta(titanmeta);
 
 		turtle = new ItemStack(Material.DIAMOND_CHESTPLATE);
 		turtlemeta = turtle.getItemMeta();
-		turtlemeta.setDisplayName("§b§lTurtle");
-		turtlemeta.setLore(Lore("§fTome §fmenos §fdano §fno §fshift"));
+		turtlemeta.setDisplayName("ï¿½bï¿½lTurtle");
+		turtlemeta.setLore(Lore("ï¿½fTome ï¿½fmenos ï¿½fdano ï¿½fno ï¿½fshift"));
 		turtle.setItemMeta(turtlemeta);
 
 		urgal = new ItemStack(Material.REDSTONE);
 		urgalmeta = urgal.getItemMeta();
-		urgalmeta.setDisplayName("§b§lUrgal");
-		urgalmeta.setLore(Lore("§fUse §fe §ffique §fmais §fforte"));
+		urgalmeta.setDisplayName("ï¿½bï¿½lUrgal");
+		urgalmeta.setLore(Lore("ï¿½fUse ï¿½fe ï¿½ffique ï¿½fmais ï¿½fforte"));
 		urgal.setItemMeta(urgalmeta);
 
 		ninja = new ItemStack(Material.COAL_BLOCK);
 		ninjameta = ninja.getItemMeta();
-		ninjameta.setDisplayName("§b§lNinja");
-		ninjameta.setLore(Lore("§fSeja §fum §fum §fninja §fe §fteleporte §faos §foponentes"));
+		ninjameta.setDisplayName("ï¿½bï¿½lNinja");
+		ninjameta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fum ï¿½fninja ï¿½fe ï¿½fteleporte ï¿½faos ï¿½foponentes"));
 		ninja.setItemMeta(ninjameta);
 
 		thor = new ItemStack(Material.GOLD_AXE);
 		thormeta = thor.getItemMeta();
-		thormeta.setDisplayName("§b§lThor");
-		thormeta.setLore(Lore("§fSeja §fo §fthor §fe §flance §fraios"));
+		thormeta.setDisplayName("ï¿½bï¿½lThor");
+		thormeta.setLore(Lore("ï¿½fSeja ï¿½fo ï¿½fthor ï¿½fe ï¿½flance ï¿½fraios"));
 		thor.setItemMeta(thormeta);
 
 		timelord = new ItemStack(Material.WATCH);
 		timelordmeta = timelord.getItemMeta();
-		timelordmeta.setDisplayName("§b§lTimeLord");
-		timelordmeta.setLore(Lore("§fSCongele os oponentes"));
+		timelordmeta.setDisplayName("ï¿½bï¿½lTimeLord");
+		timelordmeta.setLore(Lore("ï¿½fSCongele os oponentes"));
 		timelord.setItemMeta(timelordmeta);
 
 		quickdropper = new ItemStack(Material.BOWL);
 		quickdroppermeta = quickdropper.getItemMeta();
-		quickdroppermeta.setDisplayName("§b§lQuickDropper");
-		quickdroppermeta.setLore(Lore("§fDrope §fsopas §fautomaticamente"));
+		quickdroppermeta.setDisplayName("ï¿½bï¿½lQuickDropper");
+		quickdroppermeta.setLore(Lore("ï¿½fDrope ï¿½fsopas ï¿½fautomaticamente"));
 		quickdropper.setItemMeta(quickdroppermeta);
 
 		poseidon = new ItemStack(Material.WATER_BUCKET);
 		poseidonmeta = poseidon.getItemMeta();
-		poseidonmeta.setDisplayName("§b§lPoseidon");
-		poseidonmeta.setLore(Lore("§fSeja §fo §fposeidon"));
+		poseidonmeta.setDisplayName("ï¿½bï¿½lPoseidon");
+		poseidonmeta.setLore(Lore("ï¿½fSeja ï¿½fo ï¿½fposeidon"));
 		poseidon.setItemMeta(poseidonmeta);
 
 		phantom = new ItemStack(Material.FEATHER);
 		phantommeta = phantom.getItemMeta();
-		phantommeta.setDisplayName("§b§lPhantom");
-		phantommeta.setLore(Lore("§fVoe §fpor §f5 §fsegundos"));
+		phantommeta.setDisplayName("ï¿½bï¿½lPhantom");
+		phantommeta.setLore(Lore("ï¿½fVoe ï¿½fpor ï¿½f5 ï¿½fsegundos"));
 		phantom.setItemMeta(phantommeta);
 
 		Camel = new ItemStack(Material.SAND);
 		Camelmeta = Camel.getItemMeta();
-		Camelmeta.setDisplayName("§b§lCamel");
-		Camelmeta.setLore(Lore("§fAnde §fpela §fareia §fe §fganhe §fefeitos"));
+		Camelmeta.setDisplayName("ï¿½bï¿½lCamel");
+		Camelmeta.setLore(Lore("ï¿½fAnde ï¿½fpela ï¿½fareia ï¿½fe ï¿½fganhe ï¿½fefeitos"));
 		Camel.setItemMeta(Camelmeta);
 
 		burstmaster = new ItemStack(Material.STONE_HOE);
 		burstmastermeta = burstmaster.getItemMeta();
-		burstmastermeta.setDisplayName("§b§lBurstMaster");
-		burstmastermeta.setLore(Lore("§fSeja §fum §fburstmaster"));
+		burstmastermeta.setDisplayName("ï¿½bï¿½lBurstMaster");
+		burstmastermeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fburstmaster"));
 		burstmaster.setItemMeta(burstmastermeta);
 
 		madman = new ItemStack(Material.POTION, 1, (short) 8232);
 		madmanmeta = madman.getItemMeta();
-		madmanmeta.setDisplayName("§b§lMadman");
-		madmanmeta.setLore(Lore("§fSeja §fum §fe §fde §ffraqueza §fnos §foponentes"));
+		madmanmeta.setDisplayName("ï¿½bï¿½lMadman");
+		madmanmeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fe ï¿½fde ï¿½ffraqueza ï¿½fnos ï¿½foponentes"));
 		madman.setItemMeta(madmanmeta);
 
 		Gladiator = new ItemStack(Material.IRON_FENCE);
 		Gladiatormeta = Gladiator.getItemMeta();
-		Gladiatormeta.setDisplayName("§b§lGladiator");
-		Gladiatormeta.setLore(Lore("§fSeja §fum §fGladiator"));
+		Gladiatormeta.setDisplayName("ï¿½bï¿½lGladiator");
+		Gladiatormeta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fGladiator"));
 		Gladiator.setItemMeta(Gladiatormeta);
 
 		for (int i = 0; i != 54; i++) {
@@ -662,7 +662,7 @@ public class KitSelector implements Listener, CommandExecutor {
 			kit.removeItem(vidro);
 			kit.addItem(viking);
 		}
-		if (Main.getInstace().loja.getString(p.getUniqueId() + ".Ninja").equals("true")
+		if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Ninja").equals("true")
 				|| p.hasPermission("kit.ninja")) {
 			kit.removeItem(vidro);
 			kit.addItem(ninja);
@@ -707,7 +707,7 @@ public class KitSelector implements Listener, CommandExecutor {
 			kit.removeItem(vidro);
 			kit.addItem(turtle);
 		}
-		if (Main.getInstace().loja.getString(p.getUniqueId() + ".Urgal").equals("true")
+		if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Urgal").equals("true")
 				|| p.hasPermission("kit.Urgal")) {
 			kit.removeItem(vidro);
 			kit.addItem(urgal);
@@ -728,12 +728,12 @@ public class KitSelector implements Listener, CommandExecutor {
 			kit.removeItem(vidro);
 			kit.addItem(quickdropper);
 		}
-		if (Main.getInstace().loja.getString(p.getUniqueId() + ".Poseidon").equals("true")
+		if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Poseidon").equals("true")
 				|| p.hasPermission("kit.Poseidon")) {
 			kit.removeItem(vidro);
 			kit.addItem(poseidon);
 		}
-		if (Main.getInstace().loja.getString(p.getUniqueId() + ".Phantom").equals("true")
+		if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Phantom").equals("true")
 				|| p.hasPermission("kit.phantom")) {
 			kit.removeItem(vidro);
 			kit.addItem(phantom);

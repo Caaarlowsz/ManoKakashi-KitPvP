@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KillsDeathsMoney;
 import me.confuser.barapi.BarAPI;
 
@@ -33,18 +33,18 @@ public class Admin implements CommandExecutor, Listener {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§bPrecisa ser um Player para usar esse comando");
+			sender.sendMessage("ï¿½bPrecisa ser um Player para usar esse comando");
 			return true;
 		}
 		if (!(sender.hasPermission("fly.admin"))) {
-			sender.sendMessage("§4§lKIT§F§LPVP §a: §c§lVoce nao tem permissao!");
+			sender.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cï¿½lVoce nao tem permissao!");
 			return true;
 		}
 		Player p = (Player) sender;
 		if (args.length == 0) {
 			if (!admin.contains(p.getName())) {
-				p.sendMessage("§4§lKIT§F§LPVP §a: §c§bVoce entrou no modo admin!");
-				BarAPI.setMessage(p, "§4§lKIT§F§LPVP §a: §c§lvoce entrou no modo admin!", 3);
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cï¿½bVoce entrou no modo admin!");
+				BarAPI.setMessage(p, "ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cï¿½lvoce entrou no modo admin!", 3);
 				for (Player s : Bukkit.getOnlinePlayers()) {
 					if (!s.hasPermission("fly.admin")) {
 						s.hidePlayer(p);
@@ -59,28 +59,28 @@ public class Admin implements CommandExecutor, Listener {
 
 				ItemStack estrela = new ItemStack(Material.NETHER_STAR);
 				ItemMeta estrelameta = estrela.getItemMeta();
-				estrelameta.setDisplayName("§a§lTroca Rapida!");
+				estrelameta.setDisplayName("ï¿½aï¿½lTroca Rapida!");
 				estrela.setItemMeta(estrelameta);
 
 				ItemStack barra = new ItemStack(Material.IRON_FENCE);
 				ItemMeta barrameta = barra.getItemMeta();
-				barrameta.setDisplayName("§a§lPrender!");
+				barrameta.setDisplayName("ï¿½aï¿½lPrender!");
 				barra.setItemMeta(barrameta);
 
 				ItemStack sopa = new ItemStack(Material.MUSHROOM_SOUP);
 				ItemMeta sopameta = sopa.getItemMeta();
-				sopameta.setDisplayName("§a§lTestar Auto-Soup!");
+				sopameta.setDisplayName("ï¿½aï¿½lTestar Auto-Soup!");
 				sopa.setItemMeta(sopameta);
 
 				ItemStack etiqueta = new ItemStack(Material.NAME_TAG);
 				ItemMeta etiquetameta = etiqueta.getItemMeta();
-				etiquetameta.setDisplayName("§a§lInformaçoes do player!");
+				etiquetameta.setDisplayName("ï¿½aï¿½lInformaï¿½oes do player!");
 				etiqueta.setItemMeta(etiquetameta);
 
 				ItemStack kb = new ItemStack(Material.STICK);
 				ItemMeta kbmeta = kb.getItemMeta();
 				kbmeta.addEnchant(Enchantment.KNOCKBACK, 5, true);
-				kbmeta.setDisplayName("§a§lTeste o KnockBack");
+				kbmeta.setDisplayName("ï¿½aï¿½lTeste o KnockBack");
 				kb.setItemMeta(kbmeta);
 
 				p.getInventory().setItem(0, kb);
@@ -91,8 +91,8 @@ public class Admin implements CommandExecutor, Listener {
 				p.updateInventory();
 
 			} else {
-				p.sendMessage("§4§lKIT§F§LPVP §a: §a§lVoce saiu do modo admin!");
-				BarAPI.setMessage(p, "§4§lKIT§F§LPVP §a:§c§lAgora voce saiu do modo admin!", 3);
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½aï¿½lVoce saiu do modo admin!");
+				BarAPI.setMessage(p, "ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a:ï¿½cï¿½lAgora voce saiu do modo admin!", 3);
 				p.getInventory().clear();
 				admin.remove(p.getName());
 				for (Player s : Bukkit.getOnlinePlayers()) {
@@ -125,13 +125,13 @@ public class Admin implements CommandExecutor, Listener {
 			Player p = e.getPlayer();
 			Player t = (Player) e.getRightClicked();
 			Damageable hp = t;
-			p.sendMessage("§6§lInformacoes do Player §7" + t.getName());
-			p.sendMessage("§6§lVida §7" + (int) hp.getHealth());
-			p.sendMessage("§6§lSopas §7" + getMaterial(t, Material.MUSHROOM_SOUP));
-			p.sendMessage("§6§lKills §7" + KillsDeathsMoney.getKills(t));
-			p.sendMessage("§6§lDeaths §7" + KillsDeathsMoney.getDeaths(t));
-			p.sendMessage("§6§lMoney §7" + KillsDeathsMoney.getMoney(t));
-			p.sendMessage("§6§lP §7" + t.getAddress().getHostString());
+			p.sendMessage("ï¿½6ï¿½lInformacoes do Player ï¿½7" + t.getName());
+			p.sendMessage("ï¿½6ï¿½lVida ï¿½7" + (int) hp.getHealth());
+			p.sendMessage("ï¿½6ï¿½lSopas ï¿½7" + getMaterial(t, Material.MUSHROOM_SOUP));
+			p.sendMessage("ï¿½6ï¿½lKills ï¿½7" + KillsDeathsMoney.getKills(t));
+			p.sendMessage("ï¿½6ï¿½lDeaths ï¿½7" + KillsDeathsMoney.getDeaths(t));
+			p.sendMessage("ï¿½6ï¿½lMoney ï¿½7" + KillsDeathsMoney.getMoney(t));
+			p.sendMessage("ï¿½6ï¿½lP ï¿½7" + t.getAddress().getHostString());
 		}
 	}
 
@@ -155,7 +155,7 @@ public class Admin implements CommandExecutor, Listener {
 			p.openInventory(t.getInventory());
 			ItemStack s = new ItemStack(Material.MUSHROOM_SOUP);
 			ItemMeta smeta = s.getItemMeta();
-			smeta.setDisplayName("§a§lAutoSoup!");
+			smeta.setDisplayName("ï¿½aï¿½lAutoSoup!");
 			s.setItemMeta(smeta);
 			t.getInventory().setItem(9, s);
 			t.getInventory().setItem(10, new ItemStack(Material.AIR));
@@ -165,43 +165,43 @@ public class Admin implements CommandExecutor, Listener {
 			t.getInventory().setItem(14, new ItemStack(Material.AIR));
 			t.getInventory().setItem(15, new ItemStack(Material.AIR));
 			t.getInventory().setItem(16, new ItemStack(Material.AIR));
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(10, s);
 				}
 			}, 25);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(11, s);
 				}
 			}, 50);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(12, s);
 				}
 			}, 75);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(13, s);
 				}
 			}, 100);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(14, s);
 				}
 			}, 125);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(15, s);
 				}
 			}, 150);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					t.getInventory().setItem(16, s);
@@ -221,7 +221,7 @@ public class Admin implements CommandExecutor, Listener {
 					p.setGameMode(GameMode.SURVIVAL);
 				}
 			}
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					for (Player s : Bukkit.getOnlinePlayers()) {

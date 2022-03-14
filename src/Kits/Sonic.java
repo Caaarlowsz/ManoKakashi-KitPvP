@@ -22,7 +22,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class Sonic implements Listener {
@@ -49,7 +49,7 @@ public class Sonic implements Listener {
 				event.setCancelled(true);
 			}
 			if (cooldownm.contains(p)) {
-				p.sendMessage("§alAguarde o cooldown acabar!");
+				p.sendMessage("ï¿½alAguarde o cooldown acabar!");
 				return;
 			}
 			cooldownm.add(p);
@@ -95,37 +95,37 @@ public class Sonic implements Listener {
 			p.getInventory().setBoots(Bota);
 			p.updateInventory();
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 				}
 			}, 0L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 				}
 			}, 20L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 				}
 			}, 30L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 				}
 			}, 40L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 				}
 			}, 50L);
 
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					p.updateInventory();
 					fall.remove(p.getName());
@@ -141,7 +141,7 @@ public class Sonic implements Listener {
 				}
 			}, 60L);
 
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					cooldownm.remove(p);
 					sonic.remove(p.getName());

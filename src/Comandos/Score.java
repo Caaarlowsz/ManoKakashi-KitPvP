@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 
 public class Score implements CommandExecutor {
 
@@ -16,13 +16,13 @@ public class Score implements CommandExecutor {
 			return true;
 		}
 		Player p = (Player) sender;
-		if (Main.score.contains(p.getName())) {
-			Main.score.remove(p.getName());
-			p.sendMessage("§4§lKIT§F§LPVP §a: » §aSCORE ATIVADA");
+		if (ManoKakashiPvP.score.contains(p.getName())) {
+			ManoKakashiPvP.score.remove(p.getName());
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½ ï¿½aSCORE ATIVADA");
 
 		} else {
-			Main.score.add(p.getName());
-			p.sendMessage("§4§lKIT§F§LPVP §a: » §cSCORE DESATIVADA");
+			ManoKakashiPvP.score.add(p.getName());
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½ ï¿½cSCORE DESATIVADA");
 		}
 
 		return false;

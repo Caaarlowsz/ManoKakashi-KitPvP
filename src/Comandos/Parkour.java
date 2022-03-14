@@ -10,7 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.potion.PotionEffect;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Outros.ScoreBoard;
 import Utils.KitAPI;
 import Utils.WarpsAPI;
@@ -32,7 +32,7 @@ public class Parkour extends WarpsAPI implements CommandExecutor {
 			}
 			if (KitAPI.getKit(p) == "Nenhum") {
 				segundos.add(p.getDisplayName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					@Override
 					public void run() {

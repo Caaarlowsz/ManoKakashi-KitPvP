@@ -12,16 +12,16 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 
 public class Report implements CommandExecutor {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<String> reported = new ArrayList();
 
-	private Main plugin;
+	private ManoKakashiPvP plugin;
 
-	public Report(Main plugin) {
+	public Report(ManoKakashiPvP plugin) {
 		this.plugin = plugin;
 	}
 
@@ -29,7 +29,7 @@ public class Report implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		final Player p = (Player) sender;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoce nao e um jogador!");
+			sender.sendMessage("ï¿½cVoce nao e um jogador!");
 			return false;
 		}
 		if (commandLabel.equalsIgnoreCase("report")) {
@@ -37,24 +37,24 @@ public class Report implements CommandExecutor {
 				Player target = p.getServer().getPlayer(args[0]);
 				if (target != null) {
 					if (this.reported.contains(p.getName())) {
-						p.sendMessage("§4§lKIT§F§LPVP §a: §cStaffers olhando o player que voce reportou aguarde!!");
+						p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cStaffers olhando o player que voce reportou aguarde!!");
 						return true;
 					}
 					String reportMsg = StringUtils.join(Arrays.copyOfRange(args, 1, args.length), " ");
 					this.reported.add(p.getName());
-					p.sendMessage("§6Voce reportou o §b" + target.getName() + "§6 por §b" + reportMsg);
+					p.sendMessage("ï¿½6Voce reportou o ï¿½b" + target.getName() + "ï¿½6 por ï¿½b" + reportMsg);
 					Player[] arrayOfPlayer;
 					int j = (arrayOfPlayer = Bukkit.getOnlinePlayers()).length;
 					for (int i = 0; i < j; i++) {
 						Player s = arrayOfPlayer[i];
 						if (s.hasPermission("fly.report")) {
 							s.playSound(s.getLocation(), Sound.ANVIL_USE, 15.0F, 1.0F);
-							s.sendMessage(ChatColor.RED + "§7§m-----------------------------------");
+							s.sendMessage(ChatColor.RED + "ï¿½7ï¿½m-----------------------------------");
 							s.sendMessage(ChatColor.RED + "                        ");
-							s.sendMessage("§6§lPlayer reportado > §b§l" + target.getName() + " \n§6§lMotivo >> §c§l "
-									+ reportMsg + "\n§6§lReporter >§a§l " + p.getName());
+							s.sendMessage("ï¿½6ï¿½lPlayer reportado > ï¿½bï¿½l" + target.getName() + " \nï¿½6ï¿½lMotivo >> ï¿½cï¿½l "
+									+ reportMsg + "\nï¿½6ï¿½lReporter >ï¿½aï¿½l " + p.getName());
 							s.sendMessage(ChatColor.RED + "                        ");
-							s.sendMessage(ChatColor.RED + "§7§m-----------------------------------");
+							s.sendMessage(ChatColor.RED + "ï¿½7ï¿½m-----------------------------------");
 							Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
 								public void run() {
 									Report.this.reported.remove(p.getName());
@@ -66,7 +66,7 @@ public class Report implements CommandExecutor {
 					p.sendMessage("Jogador " + args[0] + " nao esta online.");
 				}
 			} else {
-				p.sendMessage("§4§lKIT§F§LPVP §a: §7Use: /" + commandLabel + " <jogador> <motivo>");
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½7Use: /" + commandLabel + " <jogador> <motivo>");
 			}
 		}
 		return false;

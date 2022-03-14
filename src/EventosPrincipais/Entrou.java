@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import APIs.TitleAPI;
 import Comandos.Admin;
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Outros.ScoreBoard;
 import Utils.KitAPI;
 import Utils.WarpsAPI;
@@ -50,17 +50,17 @@ public class Entrou implements Listener {
 		}
 		p.setGameMode(GameMode.SURVIVAL);
 		WarpsAPI.ir(p, "spawn");
-		if (!Main.getInstace().stats.contains(p.getUniqueId() + "")) {
-			Main.getInstace().stats.set(p.getUniqueId() + ".Kills", Integer.valueOf(0));
-			Main.getInstace().stats.set(p.getUniqueId() + ".Deaths", Integer.valueOf(0));
-			Main.getInstace().stats.set(p.getUniqueId() + ".Money", Integer.valueOf(100));
-			Main.getInstace().loja.contains(p.getUniqueId() + "");
-			Main.getInstace().loja.set(p.getUniqueId() + ".Stomper", "false");
-			Main.getInstace().loja.set(p.getUniqueId() + ".Phantom", "false");
-			Main.getInstace().loja.set(p.getUniqueId() + ".Urgal", "false");
-			Main.getInstace().loja.set(p.getUniqueId() + ".Ninja", "false");
-			Main.getInstace().loja.set(p.getUniqueId() + ".Poseidon", "false");
-			Main.getInstace().save();
+		if (!ManoKakashiPvP.getInstace().stats.contains(p.getUniqueId() + "")) {
+			ManoKakashiPvP.getInstace().stats.set(p.getUniqueId() + ".Kills", Integer.valueOf(0));
+			ManoKakashiPvP.getInstace().stats.set(p.getUniqueId() + ".Deaths", Integer.valueOf(0));
+			ManoKakashiPvP.getInstace().stats.set(p.getUniqueId() + ".Money", Integer.valueOf(100));
+			ManoKakashiPvP.getInstace().loja.contains(p.getUniqueId() + "");
+			ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + ".Stomper", "false");
+			ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + ".Phantom", "false");
+			ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + ".Urgal", "false");
+			ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + ".Ninja", "false");
+			ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + ".Poseidon", "false");
+			ManoKakashiPvP.getInstace().save();
 		}
 		ScoreBoard.UpdateScore(p);
 		KitAPI.KitDelay.remove(p.getName());
@@ -72,30 +72,30 @@ public class Entrou implements Listener {
 		p.getInventory().setBoots(new ItemStack(Material.AIR));
 		p.getActivePotionEffects().clear();
 		p.setLevel(0);
-		TitleAPI.sendFullTitle(p, Integer.valueOf(25), Integer.valueOf(25), Integer.valueOf(25), "§4§lKIT§F§LPVP",
-				"§aSeja Bem Vindo §f" + p.getName());
-		p.sendMessage("§7Bem vindo §6§l" + p.getName() + " §7ao §4§lKIT§F§LPVP");
-		p.sendMessage("§7Este e ums servidor de §c§lKitPvP");
-		p.sendMessage("§7Bugs Deverao ser reportados a §e§lSTAFF");
-		p.sendMessage("§7Divirta-se lembrando.. report hackers usando §d§l/REPORT");
+		TitleAPI.sendFullTitle(p, Integer.valueOf(25), Integer.valueOf(25), Integer.valueOf(25), "ï¿½4ï¿½lKITï¿½Fï¿½LPVP",
+				"ï¿½aSeja Bem Vindo ï¿½f" + p.getName());
+		p.sendMessage("ï¿½7Bem vindo ï¿½6ï¿½l" + p.getName() + " ï¿½7ao ï¿½4ï¿½lKITï¿½Fï¿½LPVP");
+		p.sendMessage("ï¿½7Este e ums servidor de ï¿½cï¿½lKitPvP");
+		p.sendMessage("ï¿½7Bugs Deverao ser reportados a ï¿½eï¿½lSTAFF");
+		p.sendMessage("ï¿½7Divirta-se lembrando.. report hackers usando ï¿½dï¿½l/REPORT");
 		for (Player s : Bukkit.getOnlinePlayers()) {
-			s.sendMessage("§7§b+§7 §c" + p.getName());
+			s.sendMessage("ï¿½7ï¿½b+ï¿½7 ï¿½c" + p.getName());
 		}
-		BarAPI.setMessage(p, "§7§lBem vindo §a§l" + p.getName() + " §7§lao §4§lKIT§F§LPVP", 5);
+		BarAPI.setMessage(p, "ï¿½7ï¿½lBem vindo ï¿½aï¿½l" + p.getName() + " ï¿½7ï¿½lao ï¿½4ï¿½lKITï¿½Fï¿½LPVP", 5);
 
 		kits = new ItemStack(Material.ENDER_CHEST);
 		kitsmeta = kits.getItemMeta();
-		kitsmeta.setDisplayName("§4§lKits");
+		kitsmeta.setDisplayName("ï¿½4ï¿½lKits");
 		kits.setItemMeta(kitsmeta);
 
 		warps = new ItemStack(Material.BOOK);
 		warpsmeta = warps.getItemMeta();
-		warpsmeta.setDisplayName("§4§lWarps");
+		warpsmeta.setDisplayName("ï¿½4ï¿½lWarps");
 		warps.setItemMeta(warpsmeta);
 
 		loja = new ItemStack(Material.DIAMOND);
 		lojameta = loja.getItemMeta();
-		lojameta.setDisplayName("§4§lLoja");
+		lojameta.setDisplayName("ï¿½4ï¿½lLoja");
 		loja.setItemMeta(lojameta);
 
 		p.getInventory().setItem(4, kits);

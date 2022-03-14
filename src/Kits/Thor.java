@@ -8,7 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class Thor implements Listener {
@@ -24,7 +24,7 @@ public class Thor implements Listener {
 				p.getWorld().strikeLightningEffect(loc.add(1.0D, 0.0D, 1.0D));
 
 				KitAPI.KitDelay.put(p.getName(), Integer.valueOf(15));
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						if ((KitAPI.getKit(p) == "Thor") && (KitAPI.KitDelay.containsKey(p.getName()))
 								&& (((Integer) KitAPI.KitDelay.get(p.getName())).intValue() <= 0)) {

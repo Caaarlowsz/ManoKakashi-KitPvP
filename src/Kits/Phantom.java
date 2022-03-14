@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 import me.confuser.barapi.BarAPI;
 
@@ -21,7 +21,7 @@ public class Phantom implements Listener {
 		final Player p = e.getPlayer();
 		if ((KitAPI.getKit(p) == "Phantom") && (e.getMaterial() == Material.FEATHER)) {
 			if (!KitAPI.KitDelay.containsKey(p.getName())) {
-				p.sendMessage("§3Voce usou seu poder de voar");
+				p.sendMessage("ï¿½3Voce usou seu poder de voar");
 
 				ItemStack is = new ItemStack(Material.LEATHER_HELMET);
 				LeatherArmorMeta ism = (LeatherArmorMeta) is.getItemMeta();
@@ -50,63 +50,63 @@ public class Phantom implements Listener {
 				p.setFlying(true);
 
 				KitAPI.KitDelay.put(p.getName(), Integer.valueOf(30));
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						if ((KitAPI.getKit(p) == "Phantom") && (KitAPI.KitDelay.containsKey(p.getName()))
 								&& (((Integer) KitAPI.KitDelay.get(p.getName())).intValue() <= 0)) {
 							KitAPI.KitDelay.remove(p.getName());
-							p.sendMessage("§aO delay acabou !");
+							p.sendMessage("ï¿½aO delay acabou !");
 						}
 					}
 				}, 600L);
 
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						p.setLevel(5);
-						BarAPI.setMessage(p, "§aPara de voar §2§l5");
+						BarAPI.setMessage(p, "ï¿½aPara de voar ï¿½2ï¿½l5");
 					}
 				}, 0L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						p.setLevel(4);
-						BarAPI.setMessage(p, "§aPara de voar §2§l4");
+						BarAPI.setMessage(p, "ï¿½aPara de voar ï¿½2ï¿½l4");
 					}
 				}, 20L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						p.setLevel(3);
-						p.sendMessage("§a3 §7segundos...");
-						BarAPI.setMessage(p, "§aPara de voar §a§l3");
+						p.sendMessage("ï¿½a3 ï¿½7segundos...");
+						BarAPI.setMessage(p, "ï¿½aPara de voar ï¿½aï¿½l3");
 					}
 				}, 40L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						p.setLevel(2);
-						p.sendMessage("§e§l2 §7segundos...");
-						BarAPI.setMessage(p, "§aPara de voar §e§l2");
+						p.sendMessage("ï¿½eï¿½l2 ï¿½7segundos...");
+						BarAPI.setMessage(p, "ï¿½aPara de voar ï¿½eï¿½l2");
 					}
 				}, 60L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						p.setLevel(1);
-						p.sendMessage("§c§l1 §7segundo.");
-						BarAPI.setMessage(p, "§aPara de voar §c§l1");
+						p.sendMessage("ï¿½cï¿½l1 ï¿½7segundo.");
+						BarAPI.setMessage(p, "ï¿½aPara de voar ï¿½cï¿½l1");
 					}
 				}, 80L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					@SuppressWarnings("deprecation")
 					public void run() {
 						if ((KitAPI.getKit(p) == "Phantom") && (KitAPI.KitDelay.containsKey(p.getName()))
 								&& (((Integer) KitAPI.KitDelay.get(p.getName())).intValue() <= 30)) {
 							p.setLevel(0);
 						}
-						p.sendMessage("§cAcabou os segundos !");
-						BarAPI.setMessage(p, "§aSeu Phantom acabou", 3);
+						p.sendMessage("ï¿½cAcabou os segundos !");
+						BarAPI.setMessage(p, "ï¿½aSeu Phantom acabou", 3);
 
 						p.getInventory().setHelmet(new ItemStack(Material.AIR));
 						p.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
@@ -119,7 +119,7 @@ public class Phantom implements Listener {
 					}
 				}, 100L);
 			} else {
-				p.sendMessage("§7Seu Poder esta carregando. §a" + KitAPI.KitDelay.get(p.getName()) + " segundos");
+				p.sendMessage("ï¿½7Seu Poder esta carregando. ï¿½a" + KitAPI.KitDelay.get(p.getName()) + " segundos");
 			}
 		}
 	}

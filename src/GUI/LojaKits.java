@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Outros.ScoreBoard;
 import Utils.KillsDeathsMoney;
 
@@ -67,7 +67,7 @@ public class LojaKits implements CommandExecutor, Listener {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§aLoja de Kits")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½aLoja de Kits")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -80,7 +80,7 @@ public class LojaKits implements CommandExecutor, Listener {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§4Sem Coins Suficientes")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½4Sem Coins Suficientes")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -97,7 +97,7 @@ public class LojaKits implements CommandExecutor, Listener {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§aComprado com sucesso")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½aComprado com sucesso")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -114,7 +114,7 @@ public class LojaKits implements CommandExecutor, Listener {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§4Ja Possui")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½4Ja Possui")) {
 				if (e.getCurrentItem().isSimilar(vidro)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -132,9 +132,9 @@ public class LojaKits implements CommandExecutor, Listener {
 		if ((e.getCurrentItem() != null) && (e.getCurrentItem().getItemMeta() != null)) {
 			Player p = (Player) e.getWhoClicked();
 			Inventory Inv = e.getInventory();
-			if (Inv.getTitle().equalsIgnoreCase("§aLoja de Kits") || Inv.getTitle().equals("§4Ja Possui o kit")
-					|| Inv.getTitle().equals("§4Sem Coins Suficientes")
-					|| Inv.getTitle().equals("§aComprado com sucesso")) {
+			if (Inv.getTitle().equalsIgnoreCase("ï¿½aLoja de Kits") || Inv.getTitle().equals("ï¿½4Ja Possui o kit")
+					|| Inv.getTitle().equals("ï¿½4Sem Coins Suficientes")
+					|| Inv.getTitle().equals("ï¿½aComprado com sucesso")) {
 				if (e.getCurrentItem().isSimilar(vidro1)) {
 					e.setCancelled(true);
 					p.closeInventory();
@@ -153,7 +153,7 @@ public class LojaKits implements CommandExecutor, Listener {
 				}
 				if (e.getCurrentItem().isSimilar(ninja)) {
 					e.setCancelled(true);
-					if (Main.getInstace().loja.getString(p.getUniqueId() + ".Ninja").equals("false")) {
+					if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Ninja").equals("false")) {
 						if (KillsDeathsMoney.getMoney(p) >= 35000) {
 							comprou(p, "Ninja", 35000);
 							KillsDeathsMoney.removermoney(p, 35000);
@@ -167,7 +167,7 @@ public class LojaKits implements CommandExecutor, Listener {
 				}
 				if (e.getCurrentItem().isSimilar(poseidon)) {
 					e.setCancelled(true);
-					if (Main.getInstace().loja.getString(p.getUniqueId() + ".Poseidon").equals("false")) {
+					if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Poseidon").equals("false")) {
 						if (KillsDeathsMoney.getMoney(p) >= 25000) {
 							comprou(p, "Poseidon", 25000);
 							KillsDeathsMoney.removermoney(p, 25000);
@@ -181,7 +181,7 @@ public class LojaKits implements CommandExecutor, Listener {
 				}
 				if (e.getCurrentItem().isSimilar(stomper)) {
 					e.setCancelled(true);
-					if (Main.getInstace().loja.getString(p.getUniqueId() + ".Stomper").equals("false")) {
+					if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Stomper").equals("false")) {
 						if (KillsDeathsMoney.getMoney(p) >= 60000) {
 							comprou(p, "Stomper", 60000);
 							KillsDeathsMoney.removermoney(p, 60000);
@@ -195,7 +195,7 @@ public class LojaKits implements CommandExecutor, Listener {
 				}
 				if (e.getCurrentItem().isSimilar(Urgal)) {
 					e.setCancelled(true);
-					if (Main.getInstace().loja.getString(p.getUniqueId() + ".Urgal").equals("false")) {
+					if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Urgal").equals("false")) {
 						if (KillsDeathsMoney.getMoney(p) >= 40000) {
 							comprou(p, "Urgal", 40000);
 							KillsDeathsMoney.removermoney(p, 40000);
@@ -209,7 +209,7 @@ public class LojaKits implements CommandExecutor, Listener {
 				}
 				if (e.getCurrentItem().isSimilar(phantom)) {
 					e.setCancelled(true);
-					if (Main.getInstace().loja.getString(p.getUniqueId() + ".Phantom").equals("false")) {
+					if (ManoKakashiPvP.getInstace().loja.getString(p.getUniqueId() + ".Phantom").equals("false")) {
 						if (KillsDeathsMoney.getMoney(p) >= 15000) {
 							comprou(p, "Phantom", 15000);
 							KillsDeathsMoney.removermoney(p, 15000);
@@ -228,50 +228,50 @@ public class LojaKits implements CommandExecutor, Listener {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§4§lL0rd§Dev §b>> §bPrecisa ser um Player para usar esse comando");
+			sender.sendMessage("ï¿½4ï¿½lL0rdï¿½Dev ï¿½b>> ï¿½bPrecisa ser um Player para usar esse comando");
 			return true;
 		}
 		Player p = (Player) sender;
-		Inventory loja = Bukkit.createInventory(p, 27, "§aLoja de Kits");
+		Inventory loja = Bukkit.createInventory(p, 27, "ï¿½aLoja de Kits");
 
 		vidro = new ItemStack(Material.STAINED_GLASS_PANE);
 		vidrometa = vidro.getItemMeta();
-		vidrometa.setDisplayName("§4§lKIT§F§LPVP");
+		vidrometa.setDisplayName("ï¿½4ï¿½lKITï¿½Fï¿½LPVP");
 		vidro.setItemMeta(vidrometa);
 
 		vidro1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 		vidro1meta = vidro1.getItemMeta();
-		vidro1meta.setDisplayName("§4§lKIT§F§LPVP");
+		vidro1meta.setDisplayName("ï¿½4ï¿½lKITï¿½Fï¿½LPVP");
 		vidro1.setItemMeta(vidro1meta);
 
 		stomper = new ItemStack(Material.IRON_BOOTS);
 		stompermeta = stomper.getItemMeta();
-		stompermeta.setDisplayName("§b§lStomper R$: 60,000");
-		stompermeta.setLore(Lore("§fPule §fde §flugares §faltos §fe §fmate §foponentes"));
+		stompermeta.setDisplayName("ï¿½bï¿½lStomper R$: 60,000");
+		stompermeta.setLore(Lore("ï¿½fPule ï¿½fde ï¿½flugares ï¿½faltos ï¿½fe ï¿½fmate ï¿½foponentes"));
 		stomper.setItemMeta(stompermeta);
 
 		ninja = new ItemStack(Material.COAL_BLOCK);
 		ninjameta = ninja.getItemMeta();
-		ninjameta.setDisplayName("§b§lNinja R$: 35,000");
-		ninjameta.setLore(Lore("§fSeja §fum §fum §fninja §fe §fteleporte §faos §foponentes"));
+		ninjameta.setDisplayName("ï¿½bï¿½lNinja R$: 35,000");
+		ninjameta.setLore(Lore("ï¿½fSeja ï¿½fum ï¿½fum ï¿½fninja ï¿½fe ï¿½fteleporte ï¿½faos ï¿½foponentes"));
 		ninja.setItemMeta(ninjameta);
 
 		Urgal = new ItemStack(Material.REDSTONE);
 		Urgalmeta = Urgal.getItemMeta();
-		Urgalmeta.setDisplayName("§b§lUrgal R$: 40,000");
-		Urgalmeta.setLore(Lore("§fSeja mais forte"));
+		Urgalmeta.setDisplayName("ï¿½bï¿½lUrgal R$: 40,000");
+		Urgalmeta.setLore(Lore("ï¿½fSeja mais forte"));
 		Urgal.setItemMeta(Urgalmeta);
 
 		poseidon = new ItemStack(Material.WATER_BUCKET);
 		poseidonmeta = poseidon.getItemMeta();
-		poseidonmeta.setDisplayName("§b§lPoseidon R$: 25,000");
-		poseidonmeta.setLore(Lore("§fSeja §fo §fposeidon"));
+		poseidonmeta.setDisplayName("ï¿½bï¿½lPoseidon R$: 25,000");
+		poseidonmeta.setLore(Lore("ï¿½fSeja ï¿½fo ï¿½fposeidon"));
 		poseidon.setItemMeta(poseidonmeta);
 
 		phantom = new ItemStack(Material.FEATHER);
 		phantommeta = phantom.getItemMeta();
-		phantommeta.setDisplayName("§b§lPhantom R$: 15,000");
-		phantommeta.setLore(Lore("§fVoe §fpor §f5 §fsegundos"));
+		phantommeta.setDisplayName("ï¿½bï¿½lPhantom R$: 15,000");
+		phantommeta.setLore(Lore("ï¿½fVoe ï¿½fpor ï¿½f5 ï¿½fsegundos"));
 		phantom.setItemMeta(phantommeta);
 
 		for (int i = 1; i <= 27; i++) {
@@ -310,7 +310,7 @@ public class LojaKits implements CommandExecutor, Listener {
 	}
 
 	public void MoneyErro(Player p, String k, int i) {
-		Inventory moneyerro = Bukkit.createInventory(p, 9, "§4Sem Coins Suficientes");
+		Inventory moneyerro = Bukkit.createInventory(p, 9, "ï¿½4Sem Coins Suficientes");
 
 		vidro = new ItemStack(Material.STAINED_GLASS_PANE);
 		vidrometa = vidro.getItemMeta();
@@ -319,8 +319,8 @@ public class LojaKits implements CommandExecutor, Listener {
 
 		erro = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 		errometa = erro.getItemMeta();
-		errometa.setDisplayName("§4ERRO AO COMPRAR");
-		errometa.setLore(Lore("§cVoce §cnao §cpossui §f" + i + " §cpara §ccomprar §co §ckit §f" + k));
+		errometa.setDisplayName("ï¿½4ERRO AO COMPRAR");
+		errometa.setLore(Lore("ï¿½cVoce ï¿½cnao ï¿½cpossui ï¿½f" + i + " ï¿½cpara ï¿½ccomprar ï¿½co ï¿½ckit ï¿½f" + k));
 		erro.setItemMeta(errometa);
 
 		for (int ii = 1; ii <= 9; ii++) {
@@ -335,22 +335,22 @@ public class LojaKits implements CommandExecutor, Listener {
 			moneyerro.setItem(8, vidro);
 
 		}
-		p.sendMessage("§c§lVoce nao possui §f" + i + " §c§lpara comprar o kit §f" + k);
+		p.sendMessage("ï¿½cï¿½lVoce nao possui ï¿½f" + i + " ï¿½cï¿½lpara comprar o kit ï¿½f" + k);
 		p.openInventory(moneyerro);
 	}
 
 	public void Japossui(Player p, String k) {
-		Inventory moneyerro = Bukkit.createInventory(p, 9, "§4Ja Possui");
+		Inventory moneyerro = Bukkit.createInventory(p, 9, "ï¿½4Ja Possui");
 
 		vidro = new ItemStack(Material.STAINED_GLASS_PANE);
 		vidrometa = vidro.getItemMeta();
-		vidrometa.setDisplayName("§f§l#");
+		vidrometa.setDisplayName("ï¿½fï¿½l#");
 		vidro.setItemMeta(vidrometa);
 
 		erro = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 		errometa = erro.getItemMeta();
-		errometa.setDisplayName("§4Ja Possui");
-		errometa.setLore(Lore("§cVoce ja possui o kit: §f" + k));
+		errometa.setDisplayName("ï¿½4Ja Possui");
+		errometa.setLore(Lore("ï¿½cVoce ja possui o kit: ï¿½f" + k));
 		erro.setItemMeta(errometa);
 
 		for (int ii = 1; ii <= 9; ii++) {
@@ -365,26 +365,26 @@ public class LojaKits implements CommandExecutor, Listener {
 			moneyerro.setItem(8, vidro);
 
 		}
-		p.sendMessage("§c§lVoce ja possui o kit: §f" + k);
+		p.sendMessage("ï¿½cï¿½lVoce ja possui o kit: ï¿½f" + k);
 		p.openInventory(moneyerro);
 	}
 
 	public void comprou(Player p, String k, int i) {
-		Inventory moneyerro = Bukkit.createInventory(p, 9, "§aComprado com sucesso");
+		Inventory moneyerro = Bukkit.createInventory(p, 9, "ï¿½aComprado com sucesso");
 
 		vidro = new ItemStack(Material.STAINED_GLASS_PANE);
 		vidrometa = vidro.getItemMeta();
-		vidrometa.setDisplayName("§f§l#");
+		vidrometa.setDisplayName("ï¿½fï¿½l#");
 		vidro.setItemMeta(vidrometa);
 
 		sucesso = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
 		sucessometa = sucesso.getItemMeta();
-		sucessometa.setDisplayName("§bVOCE COMPROU");
-		sucessometa.setLore(Lore("§bParabens §bvoce §bcomprou §bo §bkit §f" + k));
+		sucessometa.setDisplayName("ï¿½bVOCE COMPROU");
+		sucessometa.setLore(Lore("ï¿½bParabens ï¿½bvoce ï¿½bcomprou ï¿½bo ï¿½bkit ï¿½f" + k));
 		sucesso.setItemMeta(sucessometa);
 
-		Main.getInstace().loja.set(p.getUniqueId() + "." + k, "true");
-		Main.getInstace().save();
+		ManoKakashiPvP.getInstace().loja.set(p.getUniqueId() + "." + k, "true");
+		ManoKakashiPvP.getInstace().save();
 
 		for (int ii = 1; ii <= 9; ii++) {
 			moneyerro.setItem(0, vidro);
@@ -398,7 +398,7 @@ public class LojaKits implements CommandExecutor, Listener {
 			moneyerro.setItem(8, vidro);
 
 		}
-		p.sendMessage("§a§lVoce adquiriu o kit §f" + k + " §a§lcom sucesso");
+		p.sendMessage("ï¿½aï¿½lVoce adquiriu o kit ï¿½f" + k + " ï¿½aï¿½lcom sucesso");
 		p.openInventory(moneyerro);
 	}
 }

@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import ca.wacos.nametagedit.NametagAPI;
 
 public class TagsAPI implements Listener {
@@ -17,7 +17,7 @@ public class TagsAPI implements Listener {
 				p.setDisplayName(tag + p.getName());
 				NametagAPI.setPrefix(p.getName(), tag);
 			}
-		}.runTaskAsynchronously(Main.getInstace());
+		}.runTaskAsynchronously(ManoKakashiPvP.getInstace());
 	}
 
 	@EventHandler
@@ -28,65 +28,65 @@ public class TagsAPI implements Listener {
 			public void run() {
 				Player p = e.getPlayer();
 				if (p.hasPermission("tag.dono")) {
-					setarTag(p, "§4§lDONO §4");
-					p.setPlayerListName("§4" + p.getName());
+					setarTag(p, "ï¿½4ï¿½lDONO ï¿½4");
+					p.setPlayerListName("ï¿½4" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.admin")) {
-					setarTag(p, "§c§lADMIN §c");
-					p.setPlayerListName("§c" + p.getName());
+					setarTag(p, "ï¿½cï¿½lADMIN ï¿½c");
+					p.setPlayerListName("ï¿½c" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.subdono")) {
-					setarTag(p, "§c§lSUB§4DONO §4");
-					p.setPlayerListName("§4" + p.getName());
+					setarTag(p, "ï¿½cï¿½lSUBï¿½4DONO ï¿½4");
+					p.setPlayerListName("ï¿½4" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.mod")) {
-					setarTag(p, "§5§lMOD §5");
-					p.setPlayerListName("§5" + p.getName());
+					setarTag(p, "ï¿½5ï¿½lMOD ï¿½5");
+					p.setPlayerListName("ï¿½5" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.trial")) {
-					setarTag(p, "§d§lTRIAL §d");
-					p.setPlayerListName("§d" + p.getName());
+					setarTag(p, "ï¿½dï¿½lTRIAL ï¿½d");
+					p.setPlayerListName("ï¿½d" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.builder")) {
-					setarTag(p, "§2§lBUILDER §2");
-					p.setPlayerListName("§2" + p.getName());
+					setarTag(p, "ï¿½2ï¿½lBUILDER ï¿½2");
+					p.setPlayerListName("ï¿½2" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.youtuber")) {
-					setarTag(p, "§b§lYOUTUBER §b");
-					p.setPlayerListName("§b" + p.getName());
+					setarTag(p, "ï¿½bï¿½lYOUTUBER ï¿½b");
+					p.setPlayerListName("ï¿½b" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.pro")) {
-					setarTag(p, "§6§lPRO §6");
-					p.setPlayerListName("§6" + p.getName());
+					setarTag(p, "ï¿½6ï¿½lPRO ï¿½6");
+					p.setPlayerListName("ï¿½6" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.mvp")) {
-					setarTag(p, "§9§lMVP §9");
-					p.setPlayerListName("§9" + p.getName());
+					setarTag(p, "ï¿½9ï¿½lMVP ï¿½9");
+					p.setPlayerListName("ï¿½9" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.vip")) {
-					setarTag(p, "§a§lVIP §a");
-					p.setPlayerListName("§a" + p.getName());
+					setarTag(p, "ï¿½aï¿½lVIP ï¿½a");
+					p.setPlayerListName("ï¿½a" + p.getName());
 					return;
 				}
 				if (p.hasPermission("tag.normal")) {
-					setarTag(p, "§7");
-					p.setPlayerListName("§7" + p.getName());
+					setarTag(p, "ï¿½7");
+					p.setPlayerListName("ï¿½7" + p.getName());
 					return;
 				}
-				setarTag(p, "§7");
-				p.setPlayerListName("§7" + p.getName());
+				setarTag(p, "ï¿½7");
+				p.setPlayerListName("ï¿½7" + p.getName());
 				return;
 
 			}
-		}.runTaskAsynchronously(Main.getInstace());
+		}.runTaskAsynchronously(ManoKakashiPvP.getInstace());
 	}
 }

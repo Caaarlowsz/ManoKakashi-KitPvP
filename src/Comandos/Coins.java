@@ -7,43 +7,43 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import APIs.LetrasAPI;
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Outros.ScoreBoard;
 import Utils.KillsDeathsMoney;
 
 public class Coins implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoce nao e um player!");
+			sender.sendMessage("ï¿½cVoce nao e um player!");
 			return true;
 		}
 		Player p = (Player) sender;
 		if (args.length < 2) {
-			p.sendMessage("§4§lKIT§F§LPVP §a: §cUse /doar <nick> <quantidade>");
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cUse /doar <nick> <quantidade>");
 			return true;
 		}
 		Player t = Bukkit.getPlayer(args[0]);
 		if (t == p) {
-			p.sendMessage("§4§lKIT§F§LPVP §a: §cVoce nao pode se Doar");
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cVoce nao pode se Doar");
 		}
 		if (t == null) {
-			p.sendMessage("§4§lKIT§F§LPVP §a: §aJogador Nao existe ou esta offline.");
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½aJogador Nao existe ou esta offline.");
 		} else {
 			if (KillsDeathsMoney.getMoney(p) == Integer.parseInt(args[1])) {
 				KillsDeathsMoney.addMoney(t, Integer.parseInt(args[1]));
 				KillsDeathsMoney.removermoney(p, Integer.parseInt(args[1]));
-				t.sendMessage("§4§lKIT§F§LPVP §a: §aVoce Recebeu §b " + Integer.parseInt(args[1]) + "§a de §b"
+				t.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½aVoce Recebeu ï¿½b " + Integer.parseInt(args[1]) + "ï¿½a de ï¿½b"
 						+ p.getDisplayName());
-				p.sendMessage("§4§lKIT§F§LPVP §a: §aVoce acaba de doar §b " + Integer.parseInt(args[1]) + "§a para §b"
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½aVoce acaba de doar ï¿½b " + Integer.parseInt(args[1]) + "ï¿½a para ï¿½b"
 						+ t.getDisplayName());
 				ScoreBoard.UpdateScore(p);
 				ScoreBoard.UpdateScore(t);
-				Main.getInstace().save();
+				ManoKakashiPvP.getInstace().save();
 			} else {
-				p.sendMessage("§4§lKIT§F§LPVP §a: §cVoce nao tem §b" + Integer.parseInt(args[1]) + " Coins");
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cVoce nao tem ï¿½b" + Integer.parseInt(args[1]) + " Coins");
 			}
 			if (LetrasAPI.ContemLetra(args[1])) {
-				p.sendMessage("§4§lKIT§F§LPVP §a: §cUse apenas numeros!");
+				p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½cUse apenas numeros!");
 			}
 		}
 		return false;

@@ -17,7 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.BlockIterator;
 import org.bukkit.util.Vector;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class BurstMaster implements Listener {
@@ -30,7 +30,7 @@ public class BurstMaster implements Listener {
 			if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL) || b.getType() == Material.CACTUS) {
 				delay++;
 			}
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					state.update(true, false);
 				}
@@ -54,19 +54,19 @@ public class BurstMaster implements Listener {
 				Location l = p.getEyeLocation();
 				BlockIterator blockadd = new BlockIterator(l, 0.0D, 30);
 
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						boladenve.remove();
 					}
 				}, 10L);
 
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 5, 5);
 					}
 				}, 15L);
 
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						p.getWorld().createExplosion(boladenve.getLocation().add(0.0D, 1.0D, 0.0D), 5.0F);
 						p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 15, 15);
@@ -78,7 +78,7 @@ public class BurstMaster implements Listener {
 					p.getWorld().playEffect(blockToAdd, a, 46);
 				}
 				KitAPI.KitDelay.put(p.getName(), Integer.valueOf(55));
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 					public void run() {
 						if ((KitAPI.KitDelay.containsKey(p.getName())) && (KitAPI.getKit(p) == "BurstMaster")
 								&& (((Integer) KitAPI.KitDelay.get(p.getName())).intValue() <= 0)) {

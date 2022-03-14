@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Outros.ScoreBoard;
 import Utils.KitAPI;
 import Utils.WarpsAPI;
@@ -34,22 +34,22 @@ public class Spawn extends WarpsAPI implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§bPrecisa ser um Player para usar esse comando");
+			sender.sendMessage("ï¿½bPrecisa ser um Player para usar esse comando");
 			return true;
 		}
 		final Player p = (Player) sender;
 		if (args.length == 0) {
 			segundos.add(p.getName());
-			p.sendMessage("§4§lKIT§F§LPVP §a: §7§lAguarde emquanto e teleportado!");
+			p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½7ï¿½lAguarde emquanto e teleportado!");
 			p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 500, 100));
 			p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 500, 100));
-			BarAPI.setMessage(p, "§4§lKIT§F§LPVP §a: §b§lTeleportando aguarde 5 segundos", 5);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			BarAPI.setMessage(p, "ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½bï¿½lTeleportando aguarde 5 segundos", 5);
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				@Override
 				public void run() {
 					if (segundos.contains(p.getName())) {
 						p.sendMessage("  ");
-						p.sendMessage("§4§lKIT§F§LPVP §a: §7§lVoce foi teletransportado ao Spawn!");
+						p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½7ï¿½lVoce foi teletransportado ao Spawn!");
 						p.sendMessage("  ");
 						ir(p, "spawn");
 						p.setLevel(0);
@@ -67,27 +67,27 @@ public class Spawn extends WarpsAPI implements CommandExecutor {
 							p.setHealth(20);
 							kits = new ItemStack(Material.CHEST);
 							kitsmeta = kits.getItemMeta();
-							kitsmeta.setDisplayName("§a§lKits");
+							kitsmeta.setDisplayName("ï¿½aï¿½lKits");
 							kits.setItemMeta(kitsmeta);
 
 							warps = new ItemStack(Material.BOOK);
 							warpsmeta = warps.getItemMeta();
-							warpsmeta.setDisplayName("§a§lWarps");
+							warpsmeta.setDisplayName("ï¿½aï¿½lWarps");
 							warps.setItemMeta(warpsmeta);
 
 							click = new ItemStack(Material.WOOD_SWORD);
 							clickmeta = click.getItemMeta();
-							clickmeta.setDisplayName("§a§lClick-Teste");
+							clickmeta.setDisplayName("ï¿½aï¿½lClick-Teste");
 							click.setItemMeta(clickmeta);
 
 							parkour = new ItemStack(Material.NAME_TAG);
 							parkourmeta = parkour.getItemMeta();
-							parkourmeta.setDisplayName("§a§lParkour");
+							parkourmeta.setDisplayName("ï¿½aï¿½lParkour");
 							parkour.setItemMeta(parkourmeta);
 
 							loja = new ItemStack(Material.EMERALD);
 							lojameta = parkour.getItemMeta();
-							lojameta.setDisplayName("§a§lLoja");
+							lojameta.setDisplayName("ï¿½aï¿½lLoja");
 							loja.setItemMeta(lojameta);
 
 							p.getInventory().setItem(1, kits);
@@ -103,7 +103,7 @@ public class Spawn extends WarpsAPI implements CommandExecutor {
 			if (args[0].equalsIgnoreCase("set")) {
 				if (p.hasPermission("fly.set")) {
 					Set(p, "spawn");
-					p.sendMessage("§4§lKIT§F§LPVP §a: §b§lVoce setou o Spawn!");
+					p.sendMessage("ï¿½4ï¿½lKITï¿½Fï¿½LPVP ï¿½a: ï¿½bï¿½lVoce setou o Spawn!");
 				}
 			}
 		}

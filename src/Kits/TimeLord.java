@@ -14,7 +14,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 import Utils.KitAPI;
 
 public class TimeLord implements Listener {
@@ -39,7 +39,7 @@ public class TimeLord implements Listener {
 								player.getWorld().playSound(player.getLocation(), Sound.WITHER_SHOOT, 10.0F, 1.0F);
 								freezing.add(player.getName());
 								cooldownt.add(player.getName());
-								Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(),
+								Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(),
 										new Runnable() {
 											public void run() {
 												freezing.remove(player.getName());
@@ -61,7 +61,7 @@ public class TimeLord implements Listener {
 		if ((freeze.contains(player.getName())) && (!freezing.contains(player.getName()))) {
 			event.setTo(player.getLocation());
 			player.sendMessage("§aVoce foi congelado por um TimeLord!!");
-			Main.getInstace().getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+			ManoKakashiPvP.getInstace().getServer().getScheduler().scheduleSyncDelayedTask(ManoKakashiPvP.getInstace(), new Runnable() {
 				public void run() {
 					freeze.remove(player.getName());
 				}

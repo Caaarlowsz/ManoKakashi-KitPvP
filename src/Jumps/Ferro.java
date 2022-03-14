@@ -15,12 +15,12 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
-import Main.Main;
+import com.github.caaarlowsz.manokakashimc.kitpvp.ManoKakashiPvP;
 
 public class Ferro implements Listener {
-	public static Main plugin;
+	public static ManoKakashiPvP plugin;
 
-	public Ferro(Main main) {
+	public Ferro(ManoKakashiPvP main) {
 		plugin = main;
 	}
 
